@@ -1,0 +1,1749 @@
+{
+    "extensions": {
+        "eventsTimeline": {
+            "events": [
+            ],
+            "patterns": [
+            ],
+            "timelines": [
+                {
+                    "eventInstances": [
+                    ],
+                    "name": "Timeline_1",
+                    "order": 0,
+                    "patternInstances": [
+                    ]
+                }
+            ]
+        }
+    },
+    "library": {
+        "classes": [
+            {
+                "className": "Whiteboard",
+                "color": 0,
+                "definition": {
+                    "inputs": [
+                        {
+                            "name": "title",
+                            "type": "STRING"
+                        },
+                        {
+                            "name": "backgroundColor",
+                            "type": "STRING"
+                        },
+                        {
+                            "name": "labelsVisible",
+                            "type": "BOOL"
+                        },
+                        {
+                            "name": "chatMessage",
+                            "type": "STRING"
+                        },
+                        {
+                            "name": "clear",
+                            "type": "IMPULSION"
+                        },
+                        {
+                            "name": "ui_command",
+                            "type": "STRING"
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "windowWidth",
+                            "type": "INTEGER"
+                        },
+                        {
+                            "name": "windowHeight",
+                            "type": "INTEGER"
+                        },
+                        {
+                            "name": "whiteboardWidth",
+                            "type": "INTEGER"
+                        },
+                        {
+                            "name": "whiteboardHeight",
+                            "type": "INTEGER"
+                        },
+                        {
+                            "name": "lastChatMessage",
+                            "type": "STRING"
+                        },
+                        {
+                            "name": "lastAction",
+                            "type": "STRING"
+                        },
+                        {
+                            "name": "ui_error",
+                            "type": "STRING"
+                        }
+                    ],
+                    "services": [
+                        {
+                            "arguments": [
+                                {
+                                    "name": "title",
+                                    "type": "STRING"
+                                }
+                            ],
+                            "name": "setTitle"
+                        },
+                        {
+                            "arguments": [
+                                {
+                                    "name": "color",
+                                    "type": "STRING"
+                                }
+                            ],
+                            "name": "setBackgroundColor"
+                        },
+                        {
+                            "name": "getWindowSize",
+                            "replies": [
+                                {
+                                    "arguments": [
+                                        {
+                                            "name": "width",
+                                            "type": "INTEGER"
+                                        },
+                                        {
+                                            "name": "height",
+                                            "type": "INTEGER"
+                                        }
+                                    ],
+                                    "name": "getWindowSizeResult"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "getWhiteboardSize",
+                            "replies": [
+                                {
+                                    "arguments": [
+                                        {
+                                            "name": "width",
+                                            "type": "INTEGER"
+                                        },
+                                        {
+                                            "name": "height",
+                                            "type": "INTEGER"
+                                        }
+                                    ],
+                                    "name": "getWhiteboardSizeResult"
+                                }
+                            ]
+                        },
+                        {
+                            "arguments": [
+                                {
+                                    "name": "message",
+                                    "type": "STRING"
+                                }
+                            ],
+                            "name": "chat"
+                        },
+                        {
+                            "arguments": [
+                                {
+                                    "name": "name",
+                                    "type": "STRING"
+                                },
+                                {
+                                    "name": "message",
+                                    "type": "STRING"
+                                }
+                            ],
+                            "name": "chatAs"
+                        },
+                        {
+                            "name": "snapshot",
+                            "replies": [
+                                {
+                                    "arguments": [
+                                        {
+                                            "name": "base64Png",
+                                            "type": "DATA"
+                                        }
+                                    ],
+                                    "name": "snapshotResult"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "clear"
+                        },
+                        {
+                            "name": "showLabels"
+                        },
+                        {
+                            "name": "hideLabels"
+                        },
+                        {
+                            "arguments": [
+                                {
+                                    "name": "type",
+                                    "type": "STRING"
+                                },
+                                {
+                                    "name": "x",
+                                    "type": "DOUBLE"
+                                },
+                                {
+                                    "name": "y",
+                                    "type": "DOUBLE"
+                                },
+                                {
+                                    "name": "width",
+                                    "type": "DOUBLE"
+                                },
+                                {
+                                    "name": "height",
+                                    "type": "DOUBLE"
+                                },
+                                {
+                                    "name": "fill",
+                                    "type": "STRING"
+                                },
+                                {
+                                    "name": "stroke",
+                                    "type": "STRING"
+                                },
+                                {
+                                    "name": "strokeWidth",
+                                    "type": "DOUBLE"
+                                }
+                            ],
+                            "name": "addShape",
+                            "replies": [
+                                {
+                                    "arguments": [
+                                        {
+                                            "name": "elementId",
+                                            "type": "INTEGER"
+                                        }
+                                    ],
+                                    "name": "elementCreated"
+                                }
+                            ]
+                        },
+                        {
+                            "arguments": [
+                                {
+                                    "name": "text",
+                                    "type": "STRING"
+                                },
+                                {
+                                    "name": "x",
+                                    "type": "DOUBLE"
+                                },
+                                {
+                                    "name": "y",
+                                    "type": "DOUBLE"
+                                },
+                                {
+                                    "name": "color",
+                                    "type": "STRING"
+                                }
+                            ],
+                            "name": "addText",
+                            "replies": [
+                                {
+                                    "arguments": [
+                                        {
+                                            "name": "elementId",
+                                            "type": "INTEGER"
+                                        }
+                                    ],
+                                    "name": "elementCreated"
+                                }
+                            ]
+                        },
+                        {
+                            "arguments": [
+                                {
+                                    "name": "base64",
+                                    "type": "DATA"
+                                },
+                                {
+                                    "name": "x",
+                                    "type": "DOUBLE"
+                                },
+                                {
+                                    "name": "y",
+                                    "type": "DOUBLE"
+                                },
+                                {
+                                    "name": "width",
+                                    "type": "DOUBLE"
+                                },
+                                {
+                                    "name": "height",
+                                    "type": "DOUBLE"
+                                }
+                            ],
+                            "name": "addImage",
+                            "replies": [
+                                {
+                                    "arguments": [
+                                        {
+                                            "name": "elementId",
+                                            "type": "INTEGER"
+                                        }
+                                    ],
+                                    "name": "elementCreated"
+                                }
+                            ]
+                        },
+                        {
+                            "arguments": [
+                                {
+                                    "name": "url",
+                                    "type": "STRING"
+                                },
+                                {
+                                    "name": "x",
+                                    "type": "DOUBLE"
+                                },
+                                {
+                                    "name": "y",
+                                    "type": "DOUBLE"
+                                }
+                            ],
+                            "name": "addImageFromUrl",
+                            "replies": [
+                                {
+                                    "arguments": [
+                                        {
+                                            "name": "elementId",
+                                            "type": "INTEGER"
+                                        }
+                                    ],
+                                    "name": "elementCreated"
+                                }
+                            ]
+                        },
+                        {
+                            "arguments": [
+                                {
+                                    "name": "elementId",
+                                    "type": "INTEGER"
+                                }
+                            ],
+                            "name": "remove",
+                            "replies": [
+                                {
+                                    "arguments": [
+                                        {
+                                            "name": "succeeded",
+                                            "type": "BOOL"
+                                        }
+                                    ],
+                                    "name": "actionResult"
+                                }
+                            ]
+                        },
+                        {
+                            "arguments": [
+                                {
+                                    "name": "elementId",
+                                    "type": "INTEGER"
+                                },
+                                {
+                                    "name": "dx",
+                                    "type": "DOUBLE"
+                                },
+                                {
+                                    "name": "dy",
+                                    "type": "DOUBLE"
+                                }
+                            ],
+                            "name": "translate",
+                            "replies": [
+                                {
+                                    "arguments": [
+                                        {
+                                            "name": "succeeded",
+                                            "type": "BOOL"
+                                        }
+                                    ],
+                                    "name": "actionResult"
+                                }
+                            ]
+                        },
+                        {
+                            "arguments": [
+                                {
+                                    "name": "elementId",
+                                    "type": "INTEGER"
+                                },
+                                {
+                                    "name": "x",
+                                    "type": "DOUBLE"
+                                },
+                                {
+                                    "name": "y",
+                                    "type": "DOUBLE"
+                                }
+                            ],
+                            "name": "moveTo",
+                            "replies": [
+                                {
+                                    "arguments": [
+                                        {
+                                            "name": "succeeded",
+                                            "type": "BOOL"
+                                        }
+                                    ],
+                                    "name": "actionResult"
+                                }
+                            ]
+                        },
+                        {
+                            "arguments": [
+                                {
+                                    "name": "elementId",
+                                    "type": "INTEGER"
+                                },
+                                {
+                                    "name": "property",
+                                    "type": "STRING"
+                                },
+                                {
+                                    "name": "value",
+                                    "type": "STRING"
+                                }
+                            ],
+                            "name": "setStringProperty",
+                            "replies": [
+                                {
+                                    "arguments": [
+                                        {
+                                            "name": "succeeded",
+                                            "type": "BOOL"
+                                        }
+                                    ],
+                                    "name": "actionResult"
+                                }
+                            ]
+                        },
+                        {
+                            "arguments": [
+                                {
+                                    "name": "elementId",
+                                    "type": "INTEGER"
+                                },
+                                {
+                                    "name": "property",
+                                    "type": "STRING"
+                                },
+                                {
+                                    "name": "value",
+                                    "type": "DOUBLE"
+                                }
+                            ],
+                            "name": "setDoubleProperty",
+                            "replies": [
+                                {
+                                    "arguments": [
+                                        {
+                                            "name": "succeeded",
+                                            "type": "BOOL"
+                                        }
+                                    ],
+                                    "name": "actionResult"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "getElementIds",
+                            "replies": [
+                                {
+                                    "arguments": [
+                                        {
+                                            "name": "jsonArray",
+                                            "type": "STRING"
+                                        }
+                                    ],
+                                    "name": "elementIds"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "getElements",
+                            "replies": [
+                                {
+                                    "arguments": [
+                                        {
+                                            "name": "jsonArray",
+                                            "type": "STRING"
+                                        }
+                                    ],
+                                    "name": "elements"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "description": "",
+                "icon": -1,
+                "package": "",
+                "plugin": "ingescape_class",
+                "uuid": "0f7cd9cb-965d-41ca-814a-dce7da668cfb",
+                "version": ""
+            },
+            {
+                "className": "Generateur_Aleatoire",
+                "color": 0,
+                "definition": {
+                    "inputs": [
+                        {
+                            "name": "seed",
+                            "type": "INTEGER"
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "layout",
+                            "type": "DATA"
+                        }
+                    ]
+                },
+                "description": "",
+                "icon": -1,
+                "package": "",
+                "plugin": "ingescape_class",
+                "uuid": "5cc4312b-647c-467f-9339-d6d0d8e73d33",
+                "version": ""
+            },
+            {
+                "className": "Generateur_Manuel",
+                "color": 0,
+                "definition": {
+                    "inputs": [
+                        {
+                            "name": "level_number",
+                            "type": "INTEGER"
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "layout",
+                            "type": "DATA"
+                        }
+                    ]
+                },
+                "description": "",
+                "icon": -1,
+                "package": "",
+                "plugin": "ingescape_class",
+                "uuid": "6a926e44-aa00-4a30-9f2a-4bf7cd16d542",
+                "version": ""
+            },
+            {
+                "className": "Generateur_Elements",
+                "color": 0,
+                "definition": {
+                    "inputs": [
+                        {
+                            "name": "difficulty_level",
+                            "type": "INTEGER"
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "element_array",
+                            "type": "DATA"
+                        }
+                    ]
+                },
+                "description": "",
+                "icon": -1,
+                "package": "",
+                "plugin": "ingescape_class",
+                "uuid": "86acb28c-3fcf-4362-942e-20cc9976df0c",
+                "version": ""
+            },
+            {
+                "className": "Createur_Niveau",
+                "color": 0,
+                "definition": {
+                    "inputs": [
+                        {
+                            "name": "element_array",
+                            "type": "DATA"
+                        },
+                        {
+                            "name": "layout",
+                            "type": "DATA"
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "level",
+                            "type": "DATA"
+                        }
+                    ]
+                },
+                "description": "",
+                "icon": -1,
+                "package": "",
+                "plugin": "ingescape_class",
+                "uuid": "0eabbc25-7e69-4503-ac95-bf52867ed769",
+                "version": ""
+            },
+            {
+                "className": "Generateur_Input_IA",
+                "color": 0,
+                "definition": {
+                    "inputs": [
+                        {
+                            "name": "manual_control",
+                            "type": "BOOL"
+                        },
+                        {
+                            "name": "display",
+                            "type": "DATA"
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "direction",
+                            "type": "INTEGER"
+                        }
+                    ]
+                },
+                "description": "",
+                "icon": -1,
+                "package": "",
+                "plugin": "ingescape_class",
+                "uuid": "128e16de-1e48-4bd4-89f2-6e6355eb2120",
+                "version": ""
+            },
+            {
+                "className": "Detecteur_Input_Snake",
+                "color": 0,
+                "definition": {
+                    "outputs": [
+                        {
+                            "name": "direction",
+                            "type": "INTEGER"
+                        }
+                    ]
+                },
+                "description": "",
+                "icon": -1,
+                "package": "",
+                "plugin": "ingescape_class",
+                "uuid": "1c2af5b7-c2c7-4020-a1df-56953f7df5ee",
+                "version": ""
+            },
+            {
+                "className": "Detecteur_Echap",
+                "color": 0,
+                "definition": {
+                    "outputs": [
+                        {
+                            "name": "pause_pressed",
+                            "type": "BOOL"
+                        }
+                    ]
+                },
+                "description": "",
+                "icon": -1,
+                "package": "",
+                "plugin": "ingescape_class",
+                "uuid": "45edaf05-1375-4e2c-a39b-c150e402c3ea",
+                "version": ""
+            },
+            {
+                "className": "Detecteur_Input_Whiteboard",
+                "color": 0,
+                "definition": {
+                    "outputs": [
+                        {
+                            "name": "button_pressed",
+                            "type": "BOOL"
+                        }
+                    ]
+                },
+                "description": "",
+                "icon": -1,
+                "package": "",
+                "plugin": "ingescape_class",
+                "uuid": "8215e672-f4b1-4dd3-9f41-56ced5a11b00",
+                "version": ""
+            },
+            {
+                "className": "Moteur_Jeu",
+                "color": 0,
+                "definition": {
+                    "inputs": [
+                        {
+                            "name": "direction",
+                            "type": "INTEGER"
+                        },
+                        {
+                            "name": "pause",
+                            "type": "BOOL"
+                        },
+                        {
+                            "name": "level",
+                            "type": "DATA"
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "display",
+                            "type": "DATA"
+                        },
+                        {
+                            "name": "new_level",
+                            "type": "IMPULSION"
+                        },
+                        {
+                            "name": "game_over",
+                            "type": "IMPULSION"
+                        }
+                    ]
+                },
+                "description": "",
+                "icon": -1,
+                "package": "",
+                "plugin": "ingescape_class",
+                "uuid": "91fbde79-bca3-4b47-b04a-52395c587fff",
+                "version": ""
+            },
+            {
+                "className": "Affichage",
+                "color": 0,
+                "definition": {
+                    "inputs": [
+                        {
+                            "name": "display",
+                            "type": "DATA"
+                        }
+                    ]
+                },
+                "description": "",
+                "icon": -1,
+                "package": "",
+                "plugin": "ingescape_class",
+                "uuid": "7f1701d2-3698-49f9-a680-194a7791e2c7",
+                "version": ""
+            },
+            {
+                "className": "Superviseur",
+                "color": 0,
+                "definition": {
+                    "inputs": [
+                        {
+                            "name": "new_level",
+                            "type": "IMPULSION"
+                        },
+                        {
+                            "name": "config",
+                            "type": "DATA"
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "difficulty_level",
+                            "type": "BOOL"
+                        },
+                        {
+                            "name": "level_config",
+                            "type": "INTEGER"
+                        },
+                        {
+                            "name": "level_type",
+                            "type": "STRING"
+                        }
+                    ]
+                },
+                "description": "",
+                "icon": -1,
+                "package": "",
+                "plugin": "ingescape_class",
+                "uuid": "55f47a3d-1a76-4d4a-8ded-a534a91f58e5",
+                "version": ""
+            },
+            {
+                "className": "Traitement_Input_Whiteboard",
+                "color": 0,
+                "definition": {
+                    "inputs": [
+                        {
+                            "name": "game_over",
+                            "type": "IMPULSION"
+                        },
+                        {
+                            "name": "button_pressed",
+                            "type": "INTEGER"
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "start",
+                            "type": "IMPULSION"
+                        },
+                        {
+                            "name": "config",
+                            "type": "DATA"
+                        },
+                        {
+                            "name": "refresh",
+                            "type": "IMPULSION"
+                        },
+                        {
+                            "name": "instruction",
+                            "type": "STRING"
+                        }
+                    ]
+                },
+                "description": "",
+                "icon": -1,
+                "package": "",
+                "plugin": "ingescape_class",
+                "uuid": "ca1e2e14-d255-49f3-8f74-a7d75d98c3fa",
+                "version": ""
+            }
+        ]
+    },
+    "systemViews": [
+        {
+            "children": [
+                {
+                    "agent": {
+                        "instances": [
+                            {
+                                "commandLine": "\"C:\\Users\\bbalc\\Desktop\\Proyecto Y ECHE EME\\Whiteboard-win64\\Whiteboard-win64\\Whiteboard.exe\"",
+                                "hostname": "MSI",
+                                "ip": "127.0.0.1",
+                                "isAttachedToCircle": false,
+                                "uuid": "73804e87-6c6c-48aa-a423-d100235fe6c3"
+                            }
+                        ]
+                    },
+                    "class": "0f7cd9cb-965d-41ca-814a-dce7da668cfb",
+                    "height": 232,
+                    "name": "Whiteboard",
+                    "simulationTime": 5000,
+                    "uuid": "88a189d9-87cd-40f6-be41-d53ed0a469cc",
+                    "width": 250,
+                    "x": 329.82976985816924,
+                    "y": 180.47752417300399,
+                    "z": 1.8000000000000014
+                },
+                {
+                    "agent": {
+                    },
+                    "class": "0eabbc25-7e69-4503-ac95-bf52867ed769",
+                    "height": 122,
+                    "name": "Createur_Niveau",
+                    "simulationTime": 5000,
+                    "uuid": "4942abba-6de4-4cfa-b698-1685f7271dbc",
+                    "width": 250,
+                    "x": 1024.8566510088638,
+                    "y": 1046.6530310609721,
+                    "z": 2.8899999999999824
+                },
+                {
+                    "agent": {
+                    },
+                    "class": "5cc4312b-647c-467f-9339-d6d0d8e73d33",
+                    "height": 100,
+                    "name": "Generateur_Aleatoire",
+                    "simulationTime": 5000,
+                    "uuid": "72e317f6-1e5f-4b5b-900c-a10b09340e51",
+                    "width": 250,
+                    "x": 519.7875543423554,
+                    "y": 1054.3414515216552,
+                    "z": 2.869999999999983
+                },
+                {
+                    "agent": {
+                        "instances": [
+                            {
+                                "commandLine": "C:\\Users\\bbalc\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe c:/Users/bbalc/Desktop/ProjetIHM/Generateur_Elements/src/main.py",
+                                "hostname": "MSI",
+                                "ip": "127.0.0.1",
+                                "isAttachedToCircle": false,
+                                "uuid": "c83785ee-15d7-4281-bfd4-5e8f210f20be"
+                            }
+                        ]
+                    },
+                    "class": "86acb28c-3fcf-4362-942e-20cc9976df0c",
+                    "height": 100,
+                    "name": "Generateur_Elements",
+                    "simulationTime": 5000,
+                    "uuid": "f7c14cb5-aa14-4fd1-b306-086100abad34",
+                    "width": 250,
+                    "x": 519.5223355508858,
+                    "y": 931.2843018858739,
+                    "z": 3.179999999999976
+                },
+                {
+                    "agent": {
+                    },
+                    "class": "6a926e44-aa00-4a30-9f2a-4bf7cd16d542",
+                    "height": 100,
+                    "name": "Generateur_Manuel",
+                    "simulationTime": 5000,
+                    "uuid": "0fd5572d-c1e9-49fc-b9b5-004e5ab9e567",
+                    "width": 250,
+                    "x": 517.043667413102,
+                    "y": 1162.039327337526,
+                    "z": 3.1699999999999764
+                },
+                {
+                    "agent": {
+                    },
+                    "class": "91fbde79-bca3-4b47-b04a-52395c587fff",
+                    "height": 144,
+                    "name": "Moteur_Jeu",
+                    "simulationTime": 5000,
+                    "uuid": "d26ecb14-118b-42c0-9584-0223eed405a2",
+                    "width": 250,
+                    "x": 1488.8008542418293,
+                    "y": 1011.6768470841646,
+                    "z": 2.9199999999999817
+                },
+                {
+                    "agent": {
+                    },
+                    "class": "45edaf05-1375-4e2c-a39b-c150e402c3ea",
+                    "height": 100,
+                    "name": "Detecteur_Echap",
+                    "simulationTime": 5000,
+                    "uuid": "f2def8c3-dbbf-4250-8ddd-df7776a76e51",
+                    "width": 250,
+                    "x": 1025.876247274378,
+                    "y": 638.1286060145875,
+                    "z": 3.00999999999998
+                },
+                {
+                    "agent": {
+                    },
+                    "class": "8215e672-f4b1-4dd3-9f41-56ced5a11b00",
+                    "height": 100,
+                    "name": "Detecteur_Input_Whiteboard",
+                    "simulationTime": 5000,
+                    "uuid": "ee8817ac-9f82-4cf5-9377-4818fb6593c4",
+                    "width": 250,
+                    "x": -1521.0935020425325,
+                    "y": 1676.9916877741766,
+                    "z": 3.139999999999977
+                },
+                {
+                    "agent": {
+                    },
+                    "class": "ca1e2e14-d255-49f3-8f74-a7d75d98c3fa",
+                    "height": 188,
+                    "name": "Traitement_Input_Whiteboard",
+                    "simulationTime": 5000,
+                    "uuid": "170a723c-b3da-4b99-b867-3374d97a6ecd",
+                    "width": 250,
+                    "x": -1038.3733414025914,
+                    "y": 1479.4185040395,
+                    "z": 2.8299999999999836
+                },
+                {
+                    "data": {
+                        "branches": [
+                            "Easy",
+                            "Normal",
+                            "Hard",
+                            "Quit"
+                        ],
+                        "selected_branch": "Easy"
+                    },
+                    "height": 128,
+                    "isExpanded": true,
+                    "name": "",
+                    "tool": "com.ingescape.circle.tool.branch",
+                    "uuid": "24959454-77fb-4473-9a6e-c1b1845fa82e",
+                    "width": 140,
+                    "x": -189.7935005788304,
+                    "y": 1411.7972911994375,
+                    "z": 1.6800000000000013
+                },
+                {
+                    "agent": {
+                    },
+                    "class": "55f47a3d-1a76-4d4a-8ded-a534a91f58e5",
+                    "height": 166,
+                    "name": "Superviseur",
+                    "simulationTime": 5000,
+                    "uuid": "7529cd8e-7db5-4916-acb3-548b31e5bfed",
+                    "width": 250,
+                    "x": -300.8292949386713,
+                    "y": 1091.8945165143587,
+                    "z": 2.959999999999981
+                },
+                {
+                    "data": {
+                        "branches": [
+                            "random",
+                            "preset"
+                        ],
+                        "selected_branch": "preset"
+                    },
+                    "height": 84,
+                    "isExpanded": true,
+                    "name": "",
+                    "tool": "com.ingescape.circle.tool.branch",
+                    "uuid": "bf6dbdf1-e631-447e-8bef-dd5b364982ca",
+                    "width": 140,
+                    "x": 272.16418277467346,
+                    "y": 1138.1628529363973,
+                    "z": 3.0199999999999796
+                },
+                {
+                    "agent": {
+                    },
+                    "class": "1c2af5b7-c2c7-4020-a1df-56953f7df5ee",
+                    "height": 100,
+                    "name": "Detecteur_Input_Snake",
+                    "simulationTime": 5000,
+                    "uuid": "42931f26-945a-4fe0-8bbc-22a29e7100a9",
+                    "width": 250,
+                    "x": 1026.5063193751396,
+                    "y": 486.14685917319514,
+                    "z": 2.99999999999998
+                },
+                {
+                    "data": {
+                        "argumentValues": [
+                            {
+                                "name": "type",
+                                "value": "",
+                                "valueIsImplicit": true
+                            },
+                            {
+                                "name": "x",
+                                "value": null,
+                                "valueIsImplicit": true
+                            },
+                            {
+                                "name": "y",
+                                "value": null,
+                                "valueIsImplicit": true
+                            },
+                            {
+                                "name": "width",
+                                "value": null,
+                                "valueIsImplicit": true
+                            },
+                            {
+                                "name": "height",
+                                "value": null,
+                                "valueIsImplicit": true
+                            },
+                            {
+                                "name": "fill",
+                                "value": "",
+                                "valueIsImplicit": true
+                            },
+                            {
+                                "name": "stroke",
+                                "value": "",
+                                "valueIsImplicit": true
+                            },
+                            {
+                                "name": "strokeWidth",
+                                "value": null,
+                                "valueIsImplicit": true
+                            }
+                        ],
+                        "selectedAgentUuid": "88a189d9-87cd-40f6-be41-d53ed0a469cc",
+                        "selectedService": "addShape"
+                    },
+                    "height": 259,
+                    "isExpanded": true,
+                    "name": "",
+                    "tool": "com.ingescape.circle.tool.servicecaller",
+                    "uuid": "dd81e410-391a-4fdf-9304-739f8063f33a",
+                    "width": 350,
+                    "x": 500.74914959158366,
+                    "y": 1363.544312694293,
+                    "z": 2.849999999999983
+                },
+                {
+                    "data": {
+                        "argumentValues": [
+                            {
+                                "name": "type",
+                                "value": "",
+                                "valueIsImplicit": true
+                            },
+                            {
+                                "name": "x",
+                                "value": null,
+                                "valueIsImplicit": true
+                            },
+                            {
+                                "name": "y",
+                                "value": null,
+                                "valueIsImplicit": true
+                            },
+                            {
+                                "name": "width",
+                                "value": null,
+                                "valueIsImplicit": true
+                            },
+                            {
+                                "name": "height",
+                                "value": null,
+                                "valueIsImplicit": true
+                            },
+                            {
+                                "name": "fill",
+                                "value": "",
+                                "valueIsImplicit": true
+                            },
+                            {
+                                "name": "stroke",
+                                "value": "",
+                                "valueIsImplicit": true
+                            },
+                            {
+                                "name": "strokeWidth",
+                                "value": null,
+                                "valueIsImplicit": true
+                            }
+                        ],
+                        "selectedAgentUuid": "88a189d9-87cd-40f6-be41-d53ed0a469cc",
+                        "selectedService": "addShape"
+                    },
+                    "height": 259,
+                    "isExpanded": true,
+                    "name": "",
+                    "tool": "com.ingescape.circle.tool.servicecaller",
+                    "uuid": "cef8b387-5f81-4a49-9002-6eb074e3027a",
+                    "width": 350,
+                    "x": 517.5288072882606,
+                    "y": 2202.3928332835235,
+                    "z": 2.6399999999999877
+                },
+                {
+                    "data": {
+                        "argumentValues": [
+                            {
+                                "name": "type",
+                                "value": "",
+                                "valueIsImplicit": true
+                            },
+                            {
+                                "name": "x",
+                                "value": null,
+                                "valueIsImplicit": true
+                            },
+                            {
+                                "name": "y",
+                                "value": null,
+                                "valueIsImplicit": true
+                            },
+                            {
+                                "name": "width",
+                                "value": null,
+                                "valueIsImplicit": true
+                            },
+                            {
+                                "name": "height",
+                                "value": null,
+                                "valueIsImplicit": true
+                            },
+                            {
+                                "name": "fill",
+                                "value": "",
+                                "valueIsImplicit": true
+                            },
+                            {
+                                "name": "stroke",
+                                "value": "",
+                                "valueIsImplicit": true
+                            },
+                            {
+                                "name": "strokeWidth",
+                                "value": null,
+                                "valueIsImplicit": true
+                            }
+                        ],
+                        "selectedAgentUuid": "88a189d9-87cd-40f6-be41-d53ed0a469cc",
+                        "selectedService": "addShape"
+                    },
+                    "height": 259,
+                    "isExpanded": true,
+                    "name": "",
+                    "tool": "com.ingescape.circle.tool.servicecaller",
+                    "uuid": "6f3387d5-d306-446c-96e1-853f72d105da",
+                    "width": 350,
+                    "x": 510.3577455382158,
+                    "y": 1921.9091021236138,
+                    "z": 2.629999999999988
+                },
+                {
+                    "data": {
+                        "argumentValues": [
+                            {
+                                "name": "type",
+                                "value": "",
+                                "valueIsImplicit": true
+                            },
+                            {
+                                "name": "x",
+                                "value": null,
+                                "valueIsImplicit": true
+                            },
+                            {
+                                "name": "y",
+                                "value": null,
+                                "valueIsImplicit": true
+                            },
+                            {
+                                "name": "width",
+                                "value": null,
+                                "valueIsImplicit": true
+                            },
+                            {
+                                "name": "height",
+                                "value": null,
+                                "valueIsImplicit": true
+                            },
+                            {
+                                "name": "fill",
+                                "value": "",
+                                "valueIsImplicit": true
+                            },
+                            {
+                                "name": "stroke",
+                                "value": "",
+                                "valueIsImplicit": true
+                            },
+                            {
+                                "name": "strokeWidth",
+                                "value": null,
+                                "valueIsImplicit": true
+                            }
+                        ],
+                        "selectedAgentUuid": "88a189d9-87cd-40f6-be41-d53ed0a469cc",
+                        "selectedService": "addShape"
+                    },
+                    "height": 259,
+                    "isExpanded": true,
+                    "name": "",
+                    "tool": "com.ingescape.circle.tool.servicecaller",
+                    "uuid": "d563ac12-7ae9-48d7-a1e9-4c41db6097e3",
+                    "width": 350,
+                    "x": 500.0607043667774,
+                    "y": 1641.55085106374,
+                    "z": 2.5999999999999885
+                },
+                {
+                    "data": {
+                        "argumentValues": [
+                            {
+                                "name": "text",
+                                "value": "",
+                                "valueIsImplicit": true
+                            },
+                            {
+                                "name": "x",
+                                "value": null,
+                                "valueIsImplicit": true
+                            },
+                            {
+                                "name": "y",
+                                "value": null,
+                                "valueIsImplicit": true
+                            },
+                            {
+                                "name": "color",
+                                "value": "",
+                                "valueIsImplicit": true
+                            }
+                        ],
+                        "selectedAgentUuid": "88a189d9-87cd-40f6-be41-d53ed0a469cc",
+                        "selectedService": "addText"
+                    },
+                    "height": 168,
+                    "isExpanded": true,
+                    "name": "",
+                    "tool": "com.ingescape.circle.tool.servicecaller",
+                    "uuid": "8502f0ca-5c0f-4087-a2a6-71ad802746a9",
+                    "width": 350,
+                    "x": -160.76869235326808,
+                    "y": 1749.2688434975287,
+                    "z": 2.7799999999999847
+                },
+                {
+                    "data": {
+                        "argumentValues": [
+                            {
+                                "name": "text",
+                                "value": "",
+                                "valueIsImplicit": true
+                            },
+                            {
+                                "name": "x",
+                                "value": null,
+                                "valueIsImplicit": true
+                            },
+                            {
+                                "name": "y",
+                                "value": null,
+                                "valueIsImplicit": true
+                            },
+                            {
+                                "name": "color",
+                                "value": "",
+                                "valueIsImplicit": true
+                            }
+                        ],
+                        "selectedAgentUuid": "88a189d9-87cd-40f6-be41-d53ed0a469cc",
+                        "selectedService": "addText"
+                    },
+                    "height": 168,
+                    "isExpanded": true,
+                    "name": "",
+                    "tool": "com.ingescape.circle.tool.servicecaller",
+                    "uuid": "2cb244fa-e0ae-4733-86dc-d44353538c1e",
+                    "width": 350,
+                    "x": -154.6795439995817,
+                    "y": 1938.4983609471417,
+                    "z": 2.7899999999999845
+                },
+                {
+                    "data": {
+                        "argumentValues": [
+                            {
+                                "name": "text",
+                                "value": "",
+                                "valueIsImplicit": true
+                            },
+                            {
+                                "name": "x",
+                                "value": null,
+                                "valueIsImplicit": true
+                            },
+                            {
+                                "name": "y",
+                                "value": null,
+                                "valueIsImplicit": true
+                            },
+                            {
+                                "name": "color",
+                                "value": "",
+                                "valueIsImplicit": true
+                            }
+                        ],
+                        "selectedAgentUuid": "88a189d9-87cd-40f6-be41-d53ed0a469cc",
+                        "selectedService": "addText"
+                    },
+                    "height": 168,
+                    "isExpanded": true,
+                    "name": "",
+                    "tool": "com.ingescape.circle.tool.servicecaller",
+                    "uuid": "3ef6aeca-b5f8-4173-b92e-b63504838f89",
+                    "width": 350,
+                    "x": -161.84621066624845,
+                    "y": 2134.665027613809,
+                    "z": 2.809999999999984
+                },
+                {
+                    "data": {
+                        "argumentValues": [
+                            {
+                                "name": "text",
+                                "value": "",
+                                "valueIsImplicit": true
+                            },
+                            {
+                                "name": "x",
+                                "value": null,
+                                "valueIsImplicit": true
+                            },
+                            {
+                                "name": "y",
+                                "value": null,
+                                "valueIsImplicit": true
+                            },
+                            {
+                                "name": "color",
+                                "value": "",
+                                "valueIsImplicit": true
+                            }
+                        ],
+                        "selectedAgentUuid": "88a189d9-87cd-40f6-be41-d53ed0a469cc",
+                        "selectedService": "addText"
+                    },
+                    "height": 168,
+                    "isExpanded": true,
+                    "name": "",
+                    "tool": "com.ingescape.circle.tool.servicecaller",
+                    "uuid": "fd77ca24-832d-43c6-b1bf-631ac66b3f97",
+                    "width": 350,
+                    "x": -153.67954399958194,
+                    "y": 2339.1650276138075,
+                    "z": 2.7999999999999843
+                },
+                {
+                    "agent": {
+                        "instances": [
+                            {
+                                "commandLine": "C:\\Users\\bbalc\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe c:/Users/bbalc/Desktop/ProjetIHM/Affichage/src/main.py",
+                                "hostname": "MSI",
+                                "ip": "127.0.0.1",
+                                "isAttachedToCircle": false,
+                                "uuid": "4ea65a9c-1af0-4be5-b637-05ed5cf2fef8"
+                            }
+                        ]
+                    },
+                    "class": "7f1701d2-3698-49f9-a680-194a7791e2c7",
+                    "height": 100,
+                    "name": "Affichage",
+                    "simulationTime": 5000,
+                    "uuid": "67acf094-d3e3-4802-bac3-e3f04896ec20",
+                    "width": 250,
+                    "x": 1952.4814131058656,
+                    "y": 1019.0011219504865,
+                    "z": 2.9299999999999815
+                },
+                {
+                    "agent": {
+                        "instances": [
+                            {
+                                "commandLine": "\"C:\\Program Files\\Ingescape\\Ingescape Circle v4\\igsProxy.exe\" --port 5670 --name Proxy --device \"Loopback Pseudo-Interface 1\" --license C:/Users/bbalc/Documents/Ingescape/licenses --ws ws://localhost:12345",
+                                "isAttachedToCircle": true,
+                                "uuid": "2a7fa185-8349-4261-8840-879f7a805091"
+                            }
+                        ]
+                    },
+                    "class": "48879EBE0FBC48D8B429F11510954D9B",
+                    "height": 100,
+                    "name": "Proxy",
+                    "simulationTime": 5000,
+                    "uuid": "1513efcd-ab4a-4620-ac90-6b304b2d9d27",
+                    "width": 250,
+                    "x": -968.4746617683021,
+                    "y": 1031.8757724842108,
+                    "z": 3.1099999999999777
+                },
+                {
+                    "data": {
+                        "data_decoder": "BINARY",
+                        "mostRecentFirst": true,
+                        "msg_type": "",
+                        "proto_file_path": "",
+                        "showTimestamps": true,
+                        "string_decoder": "PLAIN_TEXT"
+                    },
+                    "height": 75,
+                    "isExpanded": true,
+                    "name": "",
+                    "tool": "com.ingescape.circle.tool.observer",
+                    "uuid": "db102028-74c0-4779-ae1f-8cb5c8a4e98a",
+                    "width": 250,
+                    "x": 1011.9709573272837,
+                    "y": 884.2370143557803,
+                    "z": 3.149999999999977
+                },
+                {
+                    "data": {
+                        "entries": [
+                            "3"
+                        ],
+                        "value_type": "INTEGER"
+                    },
+                    "height": 88,
+                    "isExpanded": true,
+                    "name": "",
+                    "tool": "com.ingescape.circle.tool.writer",
+                    "uuid": "e0e772cb-4f9c-450c-808c-f781cc2e76f8",
+                    "width": 250,
+                    "x": -17.976101538311923,
+                    "y": 885.1828096671463,
+                    "z": 3.189999999999976
+                }
+            ],
+            "links": {
+                "mappings": [
+                    {
+                        "from": "Createur_Niveau",
+                        "fromInput": "layout",
+                        "to": "Generateur_Aleatoire",
+                        "toOutput": "layout"
+                    },
+                    {
+                        "from": "Createur_Niveau",
+                        "fromInput": "layout",
+                        "to": "Generateur_Manuel",
+                        "toOutput": "layout"
+                    },
+                    {
+                        "from": "Createur_Niveau",
+                        "fromInput": "element_array",
+                        "to": "Generateur_Elements",
+                        "toOutput": "element_array"
+                    },
+                    {
+                        "from": "Moteur_Jeu",
+                        "fromInput": "level",
+                        "to": "Createur_Niveau",
+                        "toOutput": "level"
+                    },
+                    {
+                        "from": "Moteur_Jeu",
+                        "fromInput": "pause",
+                        "to": "Detecteur_Echap",
+                        "toOutput": "pause_pressed"
+                    },
+                    {
+                        "from": "Traitement_Input_Whiteboard",
+                        "fromInput": "button_pressed",
+                        "to": "Detecteur_Input_Whiteboard",
+                        "toOutput": "button_pressed"
+                    },
+                    {
+                        "from": "Superviseur",
+                        "fromInput": "new_level",
+                        "to": "Moteur_Jeu",
+                        "toOutput": "new_level"
+                    },
+                    {
+                        "from": "Superviseur",
+                        "fromInput": "new_level",
+                        "to": "Traitement_Input_Whiteboard",
+                        "toOutput": "start"
+                    },
+                    {
+                        "from": "Superviseur",
+                        "fromInput": "config",
+                        "to": "Traitement_Input_Whiteboard",
+                        "toOutput": "config"
+                    },
+                    {
+                        "from": "Traitement_Input_Whiteboard",
+                        "fromInput": "game_over",
+                        "to": "Moteur_Jeu",
+                        "toOutput": "game_over"
+                    },
+                    {
+                        "from": "Moteur_Jeu",
+                        "fromInput": "direction",
+                        "to": "Detecteur_Input_Snake",
+                        "toOutput": "direction"
+                    },
+                    {
+                        "from": "Affichage",
+                        "fromInput": "display",
+                        "to": "Moteur_Jeu",
+                        "toOutput": "display"
+                    },
+                    {
+                        "from": "Generateur_Elements",
+                        "fromInput": "difficulty_level",
+                        "to": "Superviseur",
+                        "toOutput": "difficulty_level"
+                    }
+                ],
+                "others": [
+                    {
+                        "destination": "24959454-77fb-4473-9a6e-c1b1845fa82e",
+                        "destinationIO": {
+                            "name": "branch",
+                            "type": "INPUT"
+                        },
+                        "source": "170a723c-b3da-4b99-b867-3374d97a6ecd",
+                        "sourceIO": {
+                            "name": "instruction",
+                            "type": "OUTPUT"
+                        }
+                    },
+                    {
+                        "destination": "24959454-77fb-4473-9a6e-c1b1845fa82e",
+                        "destinationIO": {
+                            "name": "spreading",
+                            "type": "INPUT"
+                        },
+                        "source": "170a723c-b3da-4b99-b867-3374d97a6ecd",
+                        "sourceIO": {
+                            "name": "refresh",
+                            "type": "OUTPUT"
+                        }
+                    },
+                    {
+                        "destination": "bf6dbdf1-e631-447e-8bef-dd5b364982ca",
+                        "destinationIO": {
+                            "name": "branch",
+                            "type": "INPUT"
+                        },
+                        "source": "7529cd8e-7db5-4916-acb3-548b31e5bfed",
+                        "sourceIO": {
+                            "name": "level_type",
+                            "type": "OUTPUT"
+                        }
+                    },
+                    {
+                        "destination": "72e317f6-1e5f-4b5b-900c-a10b09340e51",
+                        "destinationIO": {
+                            "name": "seed",
+                            "type": "INPUT"
+                        },
+                        "source": "bf6dbdf1-e631-447e-8bef-dd5b364982ca",
+                        "sourceIO": {
+                            "name": "random",
+                            "type": "OUTPUT"
+                        }
+                    },
+                    {
+                        "destination": "0fd5572d-c1e9-49fc-b9b5-004e5ab9e567",
+                        "destinationIO": {
+                            "name": "level_number",
+                            "type": "INPUT"
+                        },
+                        "source": "bf6dbdf1-e631-447e-8bef-dd5b364982ca",
+                        "sourceIO": {
+                            "name": "preset",
+                            "type": "OUTPUT"
+                        }
+                    },
+                    {
+                        "destination": "bf6dbdf1-e631-447e-8bef-dd5b364982ca",
+                        "destinationIO": {
+                            "name": "spreading",
+                            "type": "INPUT"
+                        },
+                        "source": "7529cd8e-7db5-4916-acb3-548b31e5bfed",
+                        "sourceIO": {
+                            "name": "level_config",
+                            "type": "OUTPUT"
+                        }
+                    },
+                    {
+                        "destination": "dd81e410-391a-4fdf-9304-739f8063f33a",
+                        "destinationIO": {
+                            "name": "trigger",
+                            "type": "INPUT"
+                        },
+                        "source": "24959454-77fb-4473-9a6e-c1b1845fa82e",
+                        "sourceIO": {
+                            "name": "Easy",
+                            "type": "OUTPUT"
+                        }
+                    },
+                    {
+                        "destination": "d563ac12-7ae9-48d7-a1e9-4c41db6097e3",
+                        "destinationIO": {
+                            "name": "trigger",
+                            "type": "INPUT"
+                        },
+                        "source": "24959454-77fb-4473-9a6e-c1b1845fa82e",
+                        "sourceIO": {
+                            "name": "Normal",
+                            "type": "OUTPUT"
+                        }
+                    },
+                    {
+                        "destination": "6f3387d5-d306-446c-96e1-853f72d105da",
+                        "destinationIO": {
+                            "name": "trigger",
+                            "type": "INPUT"
+                        },
+                        "source": "24959454-77fb-4473-9a6e-c1b1845fa82e",
+                        "sourceIO": {
+                            "name": "Hard",
+                            "type": "OUTPUT"
+                        }
+                    },
+                    {
+                        "destination": "cef8b387-5f81-4a49-9002-6eb074e3027a",
+                        "destinationIO": {
+                            "name": "trigger",
+                            "type": "INPUT"
+                        },
+                        "source": "24959454-77fb-4473-9a6e-c1b1845fa82e",
+                        "sourceIO": {
+                            "name": "Quit",
+                            "type": "OUTPUT"
+                        }
+                    },
+                    {
+                        "destination": "8502f0ca-5c0f-4087-a2a6-71ad802746a9",
+                        "destinationIO": {
+                            "name": "trigger",
+                            "type": "INPUT"
+                        },
+                        "source": "170a723c-b3da-4b99-b867-3374d97a6ecd",
+                        "sourceIO": {
+                            "name": "refresh",
+                            "type": "OUTPUT"
+                        }
+                    },
+                    {
+                        "destination": "2cb244fa-e0ae-4733-86dc-d44353538c1e",
+                        "destinationIO": {
+                            "name": "trigger",
+                            "type": "INPUT"
+                        },
+                        "source": "170a723c-b3da-4b99-b867-3374d97a6ecd",
+                        "sourceIO": {
+                            "name": "refresh",
+                            "type": "OUTPUT"
+                        }
+                    },
+                    {
+                        "destination": "3ef6aeca-b5f8-4173-b92e-b63504838f89",
+                        "destinationIO": {
+                            "name": "trigger",
+                            "type": "INPUT"
+                        },
+                        "source": "170a723c-b3da-4b99-b867-3374d97a6ecd",
+                        "sourceIO": {
+                            "name": "refresh",
+                            "type": "OUTPUT"
+                        }
+                    },
+                    {
+                        "destination": "fd77ca24-832d-43c6-b1bf-631ac66b3f97",
+                        "destinationIO": {
+                            "name": "trigger",
+                            "type": "INPUT"
+                        },
+                        "source": "170a723c-b3da-4b99-b867-3374d97a6ecd",
+                        "sourceIO": {
+                            "name": "refresh",
+                            "type": "OUTPUT"
+                        }
+                    },
+                    {
+                        "destination": "db102028-74c0-4779-ae1f-8cb5c8a4e98a",
+                        "destinationIO": {
+                            "name": "wildcard",
+                            "type": "INPUT"
+                        },
+                        "source": "f7c14cb5-aa14-4fd1-b306-086100abad34",
+                        "sourceIO": {
+                            "name": "element_array",
+                            "type": "OUTPUT"
+                        }
+                    },
+                    {
+                        "destination": "f7c14cb5-aa14-4fd1-b306-086100abad34",
+                        "destinationIO": {
+                            "name": "difficulty_level",
+                            "type": "INPUT"
+                        },
+                        "source": "e0e772cb-4f9c-450c-808c-f781cc2e76f8",
+                        "sourceIO": {
+                            "name": "value",
+                            "type": "OUTPUT"
+                        }
+                    }
+                ]
+            },
+            "name": "Main view"
+        }
+    ]
+}
