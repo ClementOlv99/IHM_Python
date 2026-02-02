@@ -15,6 +15,9 @@ import time
 from pathlib import Path
 import traceback
 import sys
+import os, random
+import numpy as np
+DirFrag = "../Fragments/"
 
 from Generateur_Aleatoire import *
 
@@ -105,7 +108,17 @@ def Seed_input_callback(io_type, name, value_type, value, my_data):
         agent_object = my_data
         assert isinstance(agent_object, Generateur_Aleatoire)
         agent_object.SeedI = value
-        # add code here if needed
+        random.seed(value)
+        depart = random.choice([0,1,2,3,4,5,6,7,8])
+        print(depart)
+        finish = 8-depart
+        NorthThird = np.hstack((agent_object.corner(0, depart == 0, finish == 0), agent_object.border(0, depart == 1, finish == 1), agent_object.corner(3, depart == 2, finish == 2)))
+        CenterThird = np.hstack((agent_object.border(1, depart == 3, finish == 3), agent_object.center(depart == 4, finish == 4), agent_object.border(3, depart == 5, finish == 5)))
+        SouthThird = np.hstack((agent_object.corner(1, depart == 6, finish == 6), agent_object.border(2, depart == 7, finish == 7), agent_object.corner(2, depart == 8, finish == 8)))
+        Layout = np.vstack((NorthThird, CenterThird, SouthThird))
+        print("Layout Called")
+        SerialLayout = json.dumps(layout.tolist())
+        agent_object.LayoutO(SerialLayout)
     except:
         print(traceback.format_exc())
 
