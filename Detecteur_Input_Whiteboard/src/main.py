@@ -4,7 +4,7 @@
 #
 #  Detecteur_Input_Whiteboard
 #
-#  Created by Ingenuity i/o on 2026/01/30
+#  Created by Ingenuity i/o on 2026/02/02
 #
 #  Copyright © 2025 Ingenuity i/o. All rights reserved.
 #
@@ -20,7 +20,7 @@ from Detecteur_Input_Whiteboard import *
 
 port = 5670
 agent_name = "Detecteur_Input_Whiteboard"
-device = "Loopback Pseudo-Interface 1"
+device = None
 verbose = False
 is_interrupted = False
 
@@ -163,7 +163,7 @@ if __name__ == "__main__":
 
     igs.observe_agent_events(on_agent_event_callback, agent)
 
-    igs.output_create("button_pressed", igs.BOOL_T, None)
+    igs.output_create("button_pressed", igs.INTEGER_T, None)
 
     igs.start_with_device(device, port)
     # catch SIGINT handler after starting agent

@@ -4,7 +4,7 @@
 #
 #  Detecteur_Input_Whiteboard
 #
-#  Created by Ingenuity i/o on 2026/01/30
+#  Created by Ingenuity i/o on 2026/02/02
 #
 #  Copyright © 2025 Ingenuity i/o. All rights reserved.
 #
@@ -34,6 +34,6 @@ class Detecteur_Input_Whiteboard(metaclass=Singleton):
     def Button_PressedO(self, value):
         self._Button_PressedO = value
         if self._Button_PressedO is not None:
-            igs.output_set_bool("button_pressed", self._Button_PressedO)
+            igs.output_set_int("button_pressed", self._Button_PressedO)
 
 

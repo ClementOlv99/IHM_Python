@@ -4,7 +4,7 @@
 #
 #  Superviseur
 #
-#  Created by Ingenuity i/o on 2026/01/30
+#  Created by Ingenuity i/o on 2026/02/02
 #
 #  Copyright © 2025 Ingenuity i/o. All rights reserved.
 #
@@ -20,7 +20,7 @@ from Superviseur import *
 
 port = 5670
 agent_name = "Superviseur"
-device = "Loopback Pseudo-Interface 1"
+device = None
 verbose = False
 is_interrupted = False
 
@@ -187,7 +187,7 @@ if __name__ == "__main__":
     igs.input_create("config", igs.DATA_T, None)
     igs.observe_input("config", Config_input_callback, agent)
 
-    igs.output_create("difficulty_level", igs.BOOL_T, None)
+    igs.output_create("difficulty_level", igs.INTEGER_T, None)
     igs.output_create("level_config", igs.INTEGER_T, None)
     igs.output_create("level_type", igs.STRING_T, None)
 

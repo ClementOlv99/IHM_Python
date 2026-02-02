@@ -663,7 +663,7 @@
                     "outputs": [
                         {
                             "name": "button_pressed",
-                            "type": "BOOL"
+                            "type": "INTEGER"
                         }
                     ]
                 },
@@ -749,7 +749,7 @@
                     "outputs": [
                         {
                             "name": "difficulty_level",
-                            "type": "BOOL"
+                            "type": "INTEGER"
                         },
                         {
                             "name": "level_config",
@@ -844,9 +844,9 @@
                     "simulationTime": 5000,
                     "uuid": "4942abba-6de4-4cfa-b698-1685f7271dbc",
                     "width": 250,
-                    "x": 1024.8566510088638,
-                    "y": 1046.6530310609721,
-                    "z": 2.8899999999999824
+                    "x": 1041.4569893524592,
+                    "y": 1073.2135724107247,
+                    "z": 3.1999999999999758
                 },
                 {
                     "agent": {
@@ -1414,7 +1414,7 @@
                     "agent": {
                         "instances": [
                             {
-                                "commandLine": "\"C:\\Program Files\\Ingescape\\Ingescape Circle v4\\igsProxy.exe\" --port 5670 --name Proxy --device \"Loopback Pseudo-Interface 1\" --license C:/Users/bbalc/Documents/Ingescape/licenses --ws ws://localhost:12345",
+                                "commandLine": "C:\\Users\\cleme\\Downloads\\Ingescape\\igsProxy.exe --port 5670 --name Proxy --license C:/Users/cleme/Documents/Ingescape/licenses --ws ws://localhost:12345",
                                 "isAttachedToCircle": true,
                                 "uuid": "2a7fa185-8349-4261-8840-879f7a805091"
                             }
@@ -1432,6 +1432,20 @@
                 },
                 {
                     "data": {
+                        "value_type": "INTEGER"
+                    },
+                    "height": 88,
+                    "isExpanded": true,
+                    "name": "",
+                    "tool": "com.ingescape.circle.tool.writer",
+                    "uuid": "b2745cbd-9eb9-4903-9af5-52644421ca44",
+                    "width": 250,
+                    "x": -138.6563190234483,
+                    "y": 910.7173045182965,
+                    "z": 3.2699999999999743
+                },
+                {
+                    "data": {
                         "data_decoder": "BINARY",
                         "mostRecentFirst": true,
                         "msg_type": "",
@@ -1443,28 +1457,11 @@
                     "isExpanded": true,
                     "name": "",
                     "tool": "com.ingescape.circle.tool.observer",
-                    "uuid": "db102028-74c0-4779-ae1f-8cb5c8a4e98a",
+                    "uuid": "be86b3da-2a7c-407a-b74d-6680318cd0d9",
                     "width": 250,
-                    "x": 1011.9709573272837,
-                    "y": 884.2370143557803,
-                    "z": 3.149999999999977
-                },
-                {
-                    "data": {
-                        "entries": [
-                            "3"
-                        ],
-                        "value_type": "INTEGER"
-                    },
-                    "height": 88,
-                    "isExpanded": true,
-                    "name": "",
-                    "tool": "com.ingescape.circle.tool.writer",
-                    "uuid": "e0e772cb-4f9c-450c-808c-f781cc2e76f8",
-                    "width": 250,
-                    "x": -17.976101538311923,
-                    "y": 885.1828096671463,
-                    "z": 3.189999999999976
+                    "x": 1035.9825267148194,
+                    "y": 978.6385563895998,
+                    "z": 3.2499999999999747
                 }
             ],
             "links": {
@@ -1718,26 +1715,26 @@
                         }
                     },
                     {
-                        "destination": "db102028-74c0-4779-ae1f-8cb5c8a4e98a",
+                        "destination": "72e317f6-1e5f-4b5b-900c-a10b09340e51",
                         "destinationIO": {
-                            "name": "wildcard",
+                            "name": "seed",
                             "type": "INPUT"
                         },
-                        "source": "f7c14cb5-aa14-4fd1-b306-086100abad34",
+                        "source": "b2745cbd-9eb9-4903-9af5-52644421ca44",
                         "sourceIO": {
-                            "name": "element_array",
+                            "name": "value",
                             "type": "OUTPUT"
                         }
                     },
                     {
-                        "destination": "f7c14cb5-aa14-4fd1-b306-086100abad34",
+                        "destination": "be86b3da-2a7c-407a-b74d-6680318cd0d9",
                         "destinationIO": {
-                            "name": "difficulty_level",
+                            "name": "wildcard",
                             "type": "INPUT"
                         },
-                        "source": "e0e772cb-4f9c-450c-808c-f781cc2e76f8",
+                        "source": "72e317f6-1e5f-4b5b-900c-a10b09340e51",
                         "sourceIO": {
-                            "name": "value",
+                            "name": "layout",
                             "type": "OUTPUT"
                         }
                     }

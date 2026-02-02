@@ -4,7 +4,7 @@
 #
 #  Superviseur
 #
-#  Created by Ingenuity i/o on 2026/01/30
+#  Created by Ingenuity i/o on 2026/02/02
 #
 #  Copyright © 2025 Ingenuity i/o. All rights reserved.
 #
@@ -38,7 +38,7 @@ class Superviseur(metaclass=Singleton):
     def Difficulty_LevelO(self, value):
         self._Difficulty_LevelO = value
         if self._Difficulty_LevelO is not None:
-            igs.output_set_bool("difficulty_level", self._Difficulty_LevelO)
+            igs.output_set_int("difficulty_level", self._Difficulty_LevelO)
     @property
     def Level_ConfigO(self):
         return self._Level_ConfigO
