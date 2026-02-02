@@ -1,17 +1,20 @@
-[gd_scene load_steps=7 format=4 uid="uid://dwiaawhgw8ius"]
+[gd_scene load_steps=12 format=4 uid="uid://dwiaawhgw8ius"]
 
 [ext_resource type="PackedScene" uid="uid://cset8p2j400bw" path="res://snake.tscn" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://b5ckimndkpkye" path="res://scripts/main.gd" id="1_h2yge"]
 [ext_resource type="Texture2D" uid="uid://duvl4nipx6ypm" path="res://assets/test_tiles.png" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://br3t0dvj85ia3" path="res://scripts/base_layer.gd" id="3_7mycd"]
+[ext_resource type="Script" uid="uid://daavpwdehx8eo" path="res://scripts/item_layer.gd" id="3_lquwl"]
 [ext_resource type="Script" uid="uid://bb2yyknqwfwne" path="res://addons/godottpd/http_server.gd" id="4_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://c7rt8gu0meqm7" path="res://assets/items.png" id="4_272bh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ig7tw"]
 resource_name = "Base"
 texture = ExtResource("1_ig7tw")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
+1:0/next_alternative_id = 3
 1:0/0 = 0
-2:0/0 = 0
 3:0/0 = 0
 4:0/0 = 0
 5:0/0 = 0
@@ -72,20 +75,170 @@ texture_region_size = Vector2i(64, 64)
 12:3/0 = 0
 13:3/0 = 0
 14:3/0 = 0
+2:0/next_alternative_id = 2
+2:0/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_h2yge"]
 tile_size = Vector2i(64, 64)
 sources/2 = SubResource("TileSetAtlasSource_ig7tw")
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5vw27"]
+texture = ExtResource("4_272bh")
+texture_region_size = Vector2i(64, 64)
+0:0/animation_columns = 64
+0:0/animation_speed = 20.0
+0:0/animation_mode = 1
+0:0/animation_frame_0/duration = 1.0
+0:0/animation_frame_1/duration = 1.0
+0:0/animation_frame_2/duration = 1.0
+0:0/animation_frame_3/duration = 1.0
+0:0/animation_frame_4/duration = 1.0
+0:0/animation_frame_5/duration = 1.0
+0:0/animation_frame_6/duration = 1.0
+0:0/animation_frame_7/duration = 1.0
+0:0/animation_frame_8/duration = 1.0
+0:0/animation_frame_9/duration = 1.0
+0:0/animation_frame_10/duration = 1.0
+0:0/animation_frame_11/duration = 1.0
+0:0/animation_frame_12/duration = 1.0
+0:0/animation_frame_13/duration = 1.0
+0:0/animation_frame_14/duration = 1.0
+0:0/animation_frame_15/duration = 1.0
+0:0/animation_frame_16/duration = 1.0
+0:0/animation_frame_17/duration = 1.0
+0:0/animation_frame_18/duration = 1.0
+0:0/animation_frame_19/duration = 1.0
+0:0/animation_frame_20/duration = 1.0
+0:0/animation_frame_21/duration = 1.0
+0:0/animation_frame_22/duration = 1.0
+0:0/animation_frame_23/duration = 1.0
+0:0/animation_frame_24/duration = 1.0
+0:0/animation_frame_25/duration = 1.0
+0:0/animation_frame_26/duration = 1.0
+0:0/animation_frame_27/duration = 1.0
+0:0/animation_frame_28/duration = 1.0
+0:0/animation_frame_29/duration = 1.0
+0:0/animation_frame_30/duration = 1.0
+0:0/animation_frame_31/duration = 1.0
+0:0/animation_frame_32/duration = 1.0
+0:0/animation_frame_33/duration = 1.0
+0:0/animation_frame_34/duration = 1.0
+0:0/animation_frame_35/duration = 1.0
+0:0/animation_frame_36/duration = 1.0
+0:0/animation_frame_37/duration = 1.0
+0:0/animation_frame_38/duration = 1.0
+0:0/animation_frame_39/duration = 1.0
+0:0/animation_frame_40/duration = 1.0
+0:0/animation_frame_41/duration = 1.0
+0:0/animation_frame_42/duration = 1.0
+0:0/animation_frame_43/duration = 1.0
+0:0/animation_frame_44/duration = 1.0
+0:0/animation_frame_45/duration = 1.0
+0:0/animation_frame_46/duration = 1.0
+0:0/animation_frame_47/duration = 1.0
+0:0/animation_frame_48/duration = 1.0
+0:0/animation_frame_49/duration = 1.0
+0:0/animation_frame_50/duration = 1.0
+0:0/animation_frame_51/duration = 1.0
+0:0/animation_frame_52/duration = 1.0
+0:0/animation_frame_53/duration = 1.0
+0:0/animation_frame_54/duration = 1.0
+0:0/animation_frame_55/duration = 1.0
+0:0/animation_frame_56/duration = 1.0
+0:0/animation_frame_57/duration = 1.0
+0:0/animation_frame_58/duration = 1.0
+0:0/animation_frame_59/duration = 1.0
+0:0/animation_frame_60/duration = 1.0
+0:0/animation_frame_61/duration = 1.0
+0:0/animation_frame_62/duration = 1.0
+0:0/animation_frame_63/duration = 1.0
+0:0/0 = 0
+0:1/animation_columns = 64
+0:1/animation_speed = 20.0
+0:1/animation_mode = 1
+0:1/animation_frame_0/duration = 1.0
+0:1/animation_frame_1/duration = 1.0
+0:1/animation_frame_2/duration = 1.0
+0:1/animation_frame_3/duration = 1.0
+0:1/animation_frame_4/duration = 1.0
+0:1/animation_frame_5/duration = 1.0
+0:1/animation_frame_6/duration = 1.0
+0:1/animation_frame_7/duration = 1.0
+0:1/animation_frame_8/duration = 1.0
+0:1/animation_frame_9/duration = 1.0
+0:1/animation_frame_10/duration = 1.0
+0:1/animation_frame_11/duration = 1.0
+0:1/animation_frame_12/duration = 1.0
+0:1/animation_frame_13/duration = 1.0
+0:1/animation_frame_14/duration = 1.0
+0:1/animation_frame_15/duration = 1.0
+0:1/animation_frame_16/duration = 1.0
+0:1/animation_frame_17/duration = 1.0
+0:1/animation_frame_18/duration = 1.0
+0:1/animation_frame_19/duration = 1.0
+0:1/animation_frame_20/duration = 1.0
+0:1/animation_frame_21/duration = 1.0
+0:1/animation_frame_22/duration = 1.0
+0:1/animation_frame_23/duration = 1.0
+0:1/animation_frame_24/duration = 1.0
+0:1/animation_frame_25/duration = 1.0
+0:1/animation_frame_26/duration = 1.0
+0:1/animation_frame_27/duration = 1.0
+0:1/animation_frame_28/duration = 1.0
+0:1/animation_frame_29/duration = 1.0
+0:1/animation_frame_30/duration = 1.0
+0:1/animation_frame_31/duration = 1.0
+0:1/animation_frame_32/duration = 1.0
+0:1/animation_frame_33/duration = 1.0
+0:1/animation_frame_34/duration = 1.0
+0:1/animation_frame_35/duration = 1.0
+0:1/animation_frame_36/duration = 1.0
+0:1/animation_frame_37/duration = 1.0
+0:1/animation_frame_38/duration = 1.0
+0:1/animation_frame_39/duration = 1.0
+0:1/animation_frame_40/duration = 1.0
+0:1/animation_frame_41/duration = 1.0
+0:1/animation_frame_42/duration = 1.0
+0:1/animation_frame_43/duration = 1.0
+0:1/animation_frame_44/duration = 1.0
+0:1/animation_frame_45/duration = 1.0
+0:1/animation_frame_46/duration = 1.0
+0:1/animation_frame_47/duration = 1.0
+0:1/animation_frame_48/duration = 1.0
+0:1/animation_frame_49/duration = 1.0
+0:1/animation_frame_50/duration = 1.0
+0:1/animation_frame_51/duration = 1.0
+0:1/animation_frame_52/duration = 1.0
+0:1/animation_frame_53/duration = 1.0
+0:1/animation_frame_54/duration = 1.0
+0:1/animation_frame_55/duration = 1.0
+0:1/animation_frame_56/duration = 1.0
+0:1/animation_frame_57/duration = 1.0
+0:1/animation_frame_58/duration = 1.0
+0:1/animation_frame_59/duration = 1.0
+0:1/animation_frame_60/duration = 1.0
+0:1/animation_frame_61/duration = 1.0
+0:1/animation_frame_62/duration = 1.0
+0:1/animation_frame_63/duration = 1.0
+0:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_kek77"]
+tile_size = Vector2i(64, 64)
+sources/2 = SubResource("TileSetAtlasSource_5vw27")
+
 [node name="Main" type="Node2D"]
 script = ExtResource("1_h2yge")
+cycle_duration = null
 
 [node name="BaseLayer" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAAAAAAAAgAGAAIAAAABAAAAAgAGAAIAAAABAAEAAgAGAAIAAAACAAEAAgAGAAIAAAADAAEAAgAGAAIAAAAEAAEAAgAGAAIAAAAFAAEAAgAGAAIAAAAGAAEAAgAGAAIAAAAHAAEAAgAGAAIAAAAIAAEAAgAGAAIAAAAJAAEAAgAGAAIAAAAKAAEAAgAGAAIAAAALAAEAAgAGAAIAAAAMAAEAAgAGAAIAAAANAAEAAgAGAAIAAAAOAAEAAgAGAAIAAAAPAAEAAgAGAAIAAAAKAAIAAgAGAAIAAAAJAAIAAgAGAAIAAAAIAAIAAgAGAAIAAAAHAAIAAgAGAAIAAAAGAAIAAgAGAAIAAAAFAAIAAgAGAAIAAAAEAAIAAgAGAAIAAAALAAIAAgAGAAIAAAAMAAIAAgAGAAIAAAANAAIAAgAGAAIAAAAOAAIAAgAGAAIAAAAKAAMAAgAGAAIAAAAJAAMAAgAGAAIAAAAAAAEAAgAGAAIAAAAAAAIAAgAGAAIAAAAAAAMAAgAGAAIAAAAAAAQAAgAGAAIAAAAAAAUAAgAGAAIAAAAAAAYAAgAGAAIAAAAAAAcAAgAGAAIAAAAAAAgAAgAGAAIAAAABAAIAAgAGAAIAAAABAAMAAgAGAAIAAAABAAQAAgAGAAIAAAABAAUAAgAGAAIAAAABAAYAAgAGAAIAAAABAAcAAgAGAAIAAAABAAgAAgAGAAIAAAACAAAAAgAGAAIAAAACAAIAAgAGAAIAAAACAAMAAgAGAAIAAAACAAQAAgAGAAIAAAACAAUAAgAGAAIAAAACAAYAAgAGAAIAAAACAAcAAgAGAAIAAAACAAgAAgAGAAIAAAADAAAAAgAGAAIAAAADAAIAAgAGAAIAAAADAAMAAgAGAAIAAAADAAQAAgAGAAIAAAADAAUAAgAGAAIAAAADAAYAAgAGAAIAAAADAAcAAgAGAAIAAAADAAgAAgAGAAIAAAAEAAAAAgAGAAIAAAAEAAMAAgAGAAIAAAAEAAQAAgAGAAIAAAAEAAUAAgAGAAIAAAAEAAYAAgAGAAIAAAAEAAcAAgAGAAIAAAAEAAgAAgAGAAIAAAAFAAAAAgAGAAIAAAAFAAMAAgAGAAIAAAAFAAQAAgAGAAIAAAAFAAUAAgAGAAIAAAAFAAYAAgAGAAIAAAAFAAcAAgAGAAIAAAAFAAgAAgAGAAIAAAAGAAAAAgAGAAIAAAAGAAMAAgAGAAIAAAAGAAQAAgAGAAIAAAAGAAUAAgAGAAIAAAAGAAYAAgAGAAIAAAAGAAcAAgAGAAIAAAAGAAgAAgAGAAIAAAAHAAAAAgAGAAIAAAAHAAMAAgAGAAIAAAAHAAQAAgAGAAIAAAAHAAUAAgAGAAIAAAAHAAYAAgAGAAIAAAAHAAcAAgAGAAIAAAAHAAgAAgAGAAIAAAAIAAAAAgAGAAIAAAAIAAMAAgAGAAIAAAAIAAQAAgAGAAIAAAAIAAUAAgAGAAIAAAAIAAYAAgAGAAIAAAAIAAcAAgAGAAIAAAAIAAgAAgAGAAIAAAAJAAAAAgAGAAIAAAAJAAQAAgAGAAIAAAAJAAUAAgAGAAIAAAAJAAYAAgAGAAIAAAAJAAcAAgAGAAIAAAAJAAgAAgAGAAIAAAAKAAAAAgAGAAIAAAAKAAQAAgAGAAIAAAAKAAUAAgAGAAIAAAAKAAYAAgAGAAIAAAAKAAcAAgAGAAIAAAAKAAgAAgAGAAIAAAALAAAAAgAGAAIAAAALAAMAAgAGAAIAAAALAAQAAgAGAAIAAAALAAUAAgAGAAIAAAALAAYAAgAGAAIAAAALAAcAAgAGAAIAAAALAAgAAgAGAAIAAAAMAAAAAgAGAAIAAAAMAAMAAgAGAAIAAAAMAAQAAgAGAAIAAAAMAAUAAgAGAAIAAAAMAAYAAgAGAAIAAAAMAAcAAgAGAAIAAAAMAAgAAgAGAAIAAAANAAAAAgAGAAIAAAANAAMAAgAGAAIAAAANAAQAAgAGAAIAAAANAAUAAgAGAAIAAAANAAYAAgAGAAIAAAANAAcAAgAGAAIAAAANAAgAAgAGAAIAAAAOAAAAAgAGAAIAAAAOAAMAAgAGAAIAAAAOAAQAAgAGAAIAAAAOAAUAAgAGAAIAAAAOAAYAAgAGAAIAAAAOAAcAAgAGAAIAAAAOAAgAAgAGAAIAAAAPAAAAAgAGAAIAAAAPAAIAAgAGAAIAAAAPAAMAAgAGAAIAAAAPAAQAAgAGAAIAAAAPAAUAAgAGAAIAAAAPAAYAAgAGAAIAAAAPAAcAAgAGAAIAAAAPAAgAAgAGAAIAAAAQAAAAAgAGAAIAAAAQAAEAAgAGAAIAAAAQAAIAAgAGAAIAAAAQAAMAAgAGAAIAAAAQAAQAAgAGAAIAAAAQAAUAAgAGAAIAAAAQAAYAAgAGAAIAAAAQAAcAAgAGAAIAAAAQAAgAAgAGAAIAAAARAAAAAgAGAAIAAAARAAEAAgAGAAIAAAARAAIAAgAGAAIAAAARAAMAAgAGAAIAAAARAAQAAgAGAAIAAAARAAUAAgAGAAIAAAARAAYAAgAGAAIAAAARAAcAAgAGAAIAAAARAAgAAgAGAAIAAAAAAAkAAgAGAAIAAAABAAkAAgAGAAIAAAACAAkAAgAGAAIAAAADAAkAAgAGAAIAAAAEAAkAAgAGAAIAAAAFAAkAAgAGAAIAAAAGAAkAAgAGAAIAAAAHAAkAAgAGAAIAAAAIAAkAAgAGAAIAAAAJAAkAAgAGAAIAAAAKAAkAAgAGAAIAAAALAAkAAgAGAAIAAAAMAAkAAgAGAAIAAAANAAkAAgAGAAIAAAAOAAkAAgAGAAIAAAAPAAkAAgAGAAIAAAAQAAkAAgAGAAIAAAARAAkAAgAGAAIAAAD/////AgAGAAIAAAD//wAAAgAGAAIAAAD//wEAAgAGAAIAAAD//wIAAgAGAAIAAAD//wMAAgAGAAIAAAD//wQAAgAGAAIAAAD//wUAAgAGAAIAAAD//wYAAgAGAAIAAAD//wcAAgAGAAIAAAD//wgAAgAGAAIAAAD//wkAAgAGAAIAAAD//woAAgAGAAIAAAAAAP//AgAGAAIAAAAAAAoAAgAGAAIAAAABAP//AgAGAAIAAAABAAoAAgAGAAIAAAACAP//AgAGAAIAAAACAAoAAgAGAAIAAAADAP//AgAGAAIAAAADAAoAAgAGAAIAAAAEAP//AgAGAAIAAAAEAAoAAgAGAAIAAAAFAP//AgAGAAIAAAAFAAoAAgAGAAIAAAAGAP//AgAGAAIAAAAGAAoAAgAGAAIAAAAHAP//AgAGAAIAAAAHAAoAAgAGAAIAAAAIAP//AgAGAAIAAAAIAAoAAgAGAAIAAAAJAP//AgAGAAIAAAAJAAoAAgAGAAIAAAAKAP//AgAGAAIAAAAKAAoAAgAGAAIAAAALAP//AgAGAAIAAAALAAoAAgAGAAIAAAAMAP//AgAGAAIAAAAMAAoAAgAGAAIAAAANAP//AgAGAAIAAAANAAoAAgAGAAIAAAAOAP//AgAGAAIAAAAOAAoAAgAGAAIAAAAPAP//AgAGAAIAAAAPAAoAAgAGAAIAAAAQAP//AgAGAAIAAAAQAAoAAgAGAAIAAAARAP//AgAGAAIAAAARAAoAAgAGAAIAAAASAP//AgAGAAIAAAASAAAAAgAGAAIAAAASAAEAAgAGAAIAAAASAAIAAgAGAAIAAAASAAMAAgAGAAIAAAASAAQAAgAGAAIAAAASAAUAAgAGAAIAAAASAAYAAgAGAAIAAAASAAcAAgAGAAIAAAASAAgAAgAGAAIAAAASAAkAAgAGAAIAAAASAAoAAgAGAAIAAAD//wsAAgALAAIAAAAAAAsAAgALAAIAAAABAAsAAgALAAIAAAACAAsAAgALAAIAAAADAAsAAgALAAIAAAAEAAsAAgALAAIAAAAFAAsAAgALAAIAAAAGAAsAAgALAAIAAAAHAAsAAgALAAIAAAAIAAsAAgALAAIAAAAJAAsAAgALAAIAAAAKAAsAAgALAAIAAAALAAsAAgALAAIAAAAMAAsAAgALAAIAAAANAAsAAgALAAIAAAAOAAsAAgALAAIAAAAPAAsAAgALAAIAAAAQAAsAAgALAAIAAAARAAsAAgALAAIAAAASAAsAAgALAAIAAAA=")
 tile_set = SubResource("TileSet_h2yge")
 rendering_quadrant_size = 64
+script = ExtResource("3_7mycd")
 
 [node name="ItemLayer" type="TileMapLayer" parent="."]
+tile_set = SubResource("TileSet_kek77")
+script = ExtResource("3_lquwl")
 
 [node name="SnakeLayer" parent="." instance=ExtResource("1_0xm2m")]
 

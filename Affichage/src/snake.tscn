@@ -12,7 +12,7 @@ interpolation_mode = 2
 interpolation_color_space = 2
 colors = PackedColorArray(0.31184998, 0.77, 0.11549998, 1, 0, 0.4634971, 0.39603823, 1)
 
-[node name="SnakeLayer" type="TileMapLayer"]
+[node name="SnakeLayer" type="Node2D"]
 script = ExtResource("1_baghe")
 
 [node name="Camera2D" type="Camera2D" parent="."]
