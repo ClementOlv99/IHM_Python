@@ -53,7 +53,6 @@ def Print_Test(seed):
 	CenterThird = np.hstack((border(1, depart == 3, finish == 3), center(depart == 4, finish == 4), border(3, depart == 5, finish == 5)))
 	SouthThird = np.hstack((corner(1, depart == 6, finish == 6), border(2, depart == 7, finish == 7), corner(2, depart == 8, finish == 8)))
 	Layout = np.vstack((NorthThird, CenterThird, SouthThird))
-	Layout
 
 Print_Test(4)
 
