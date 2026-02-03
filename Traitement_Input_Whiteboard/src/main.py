@@ -20,7 +20,7 @@ from Traitement_Input_Whiteboard import *
 
 port = 5670
 agent_name = "Traitement_Input_Whiteboard"
-device = None
+device = "Loopback Pseudo-Interface 1"
 verbose = False
 is_interrupted = False
 
