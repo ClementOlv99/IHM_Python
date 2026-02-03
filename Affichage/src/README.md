@@ -23,7 +23,7 @@ This is a **Godot 4.5 renderer** for the S.N.A.K.E game, designed to receive HTT
 The HttpServer node (from godottpd addon) runs on port 8080. Register routers in [main.gd](scripts/main.gd):
 ```gdscript
 @onready var server : HttpServer = $HttpServer
-server.port = 8080
+server.port = 5670
 # Add routers via server.register_router() to handle game state updates
 ```
 
