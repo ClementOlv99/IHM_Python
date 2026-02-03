@@ -228,10 +228,10 @@ if __name__ == "__main__":
     igs.output_create("content", igs.STRING_T, None)
 
     igs.start_with_device(device, port)
-    agent.lancer()
+
     # catch SIGINT handler after starting agent
     signal.signal(signal.SIGINT, signal_handler)
-
+    agent.lancer()
     if interactive_loop:
         print_usage_help()
         while True:
