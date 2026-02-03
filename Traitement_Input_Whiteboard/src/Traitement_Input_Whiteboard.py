@@ -39,8 +39,8 @@ class Traitement_Input_Whiteboard(metaclass=Singleton):
 
         self.ingame=False
         self.difficulty = 1
-        self.width = None
-        self.height = None
+        self.width = 100
+        self.height = 100
 
     # outputs
     @property
