@@ -15,6 +15,7 @@ import time
 from pathlib import Path
 import traceback
 import sys
+import json
 
 from Generateur_Elements import *
 
@@ -107,9 +108,8 @@ def Difficulty_Level_input_callback(io_type, name, value_type, value, my_data):
         agent_object.Difficulty_LevelI = value
         # add code here if needed
         list_elem = agent_object.Gen_List(value)
-        print(list_elem)
-        print(bytes(list_elem))
-        agent_object.Element_ArrayO = bytes(list_elem)
+        seriaList = json.dumps(list_elem).encode()
+        agent_object.Element_ArrayO = seriaList
     except:
         print(traceback.format_exc())
 

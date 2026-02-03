@@ -110,7 +110,6 @@ def Seed_input_callback(io_type, name, value_type, value, my_data):
         agent_object.SeedI = value
         random.seed(value)
         depart = random.choice([0,1,2,3,4,5,6,7,8])
-        print(depart)
         finish = 8-depart
         NorthThird = np.hstack((agent_object.corner(0, depart == 0, finish == 0), agent_object.border(0, depart == 1, finish == 1), agent_object.corner(3, depart == 2, finish == 2)))
         CenterThird = np.hstack((agent_object.border(1, depart == 3, finish == 3), agent_object.center(depart == 4, finish == 4), agent_object.border(3, depart == 5, finish == 5)))
