@@ -29,9 +29,6 @@ class Traitement_Input_Whiteboard(metaclass=Singleton):
         self._InstructionO = None
 
     # outputs
-    def set_StartO(self):
-        igs.output_set_impulsion("start")
-
     @property
     def ConfigO(self):
         return self._ConfigO

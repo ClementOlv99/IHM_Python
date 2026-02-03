@@ -187,7 +187,6 @@ if __name__ == "__main__":
     igs.input_create("button_pressed", igs.INTEGER_T, None)
     igs.observe_input("button_pressed", Button_Pressed_input_callback, agent)
 
-    igs.output_create("start", igs.IMPULSION_T, None)
     igs.output_create("config", igs.INTEGER_T, None)
     igs.output_create("refresh", igs.IMPULSION_T, None)
     igs.output_create("instruction", igs.STRING_T, None)
