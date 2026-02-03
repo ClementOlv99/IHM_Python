@@ -47,7 +47,6 @@ class Generateur_Aleatoire(metaclass=Singleton):
         input = np.loadtxt(DirFrag+"Center/"+fragCen, dtype='i', delimiter=' ')
         nbRot = random.choice([0, 1, 2, 3])
         center = np.rot90(input, nbRot)
-        print(str(dep) + " " + str(fin))
         if not dep :
             center = np.where(center==2, 0, center)
         if not fin :
@@ -61,7 +60,6 @@ class Generateur_Aleatoire(metaclass=Singleton):
         if random.randrange(2) == 1 :
             border = np.fliplr(border)
         border = np.rot90(border, num)
-        print(str(dep) + " " + str(fin))
         if not dep :
             border = np.where(border==2, 0, border)
         if not fin :
