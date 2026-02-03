@@ -48,18 +48,18 @@ class Traitement_Input_Whiteboard(metaclass=Singleton):
                 case 0:
                     self.ConfigO = self.difficulty
                     self.ingame = True
-                    return True
+                    return 0
                 case 1:
                     match self.difficulty:
                         case 1:
-                            return False
+                            return 2
                         case _:
                             self.difficulty = self.difficulty -1
-                            return True
+                            return 1
                 case 2:
                     match self.difficulty:
                         case 4:
-                            return False
+                            return 2
                         case _:
                             self.difficulty = self.difficulty +1
-                            return True
+                            return 1
