@@ -144,7 +144,7 @@ def Width_input_callback(io_type, name, value_type, value, my_data):
         agent_object = my_data
         assert isinstance(agent_object, Traitement_Input_Whiteboard)
         agent_object.WidthI = value
-        # add code here if needed
+        agent.width = value
     except:
         print(traceback.format_exc())
 
@@ -153,7 +153,7 @@ def Height_input_callback(io_type, name, value_type, value, my_data):
         agent_object = my_data
         assert isinstance(agent_object, Traitement_Input_Whiteboard)
         agent_object.HeightI = value
-        # add code here if needed
+        agent.height = value
     except:
         print(traceback.format_exc())
 

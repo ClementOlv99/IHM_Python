@@ -37,6 +37,7 @@ class Traitement_Input_Whiteboard(metaclass=Singleton):
         self._Color_StrokeO = None
         self._ContentO = None
 
+        self.ingame=False
         self.width = None
         self.height = None
 
