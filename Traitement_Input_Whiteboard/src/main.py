@@ -93,7 +93,12 @@ def on_agent_event_callback(event, uuid, name, event_data, my_data):
     try:
         agent_object = my_data
         assert isinstance(agent_object, Traitement_Input_Whiteboard)
-        # add code here if needed
+        if name == "Whiteboard":
+            if event == igs.AGENT_KNOWS_US:
+                igs.service_call("Whiteboard", "clear", None, None)
+                igs.service_call("Whiteboard", "hideLabels", None, None)
+            elif event == igs.AGENT_EXITED:
+                agent_object.clean_ids()
     except:
         print(traceback.format_exc())
 
@@ -104,7 +109,7 @@ def Game_Over_input_callback(io_type, name, value_type, value, my_data):
     try:
         agent_object = my_data
         assert isinstance(agent_object, Traitement_Input_Whiteboard)
-        # add code here if needed
+        agent.ingame = False
     except:
         print(traceback.format_exc())
 
@@ -113,7 +118,7 @@ def Button_Pressed_input_callback(io_type, name, value_type, value, my_data):
         agent_object = my_data
         assert isinstance(agent_object, Traitement_Input_Whiteboard)
         agent_object.Button_PressedI = value
-        # add code here if needed
+        agent.whiteboard(value)
     except:
         print(traceback.format_exc())
 
