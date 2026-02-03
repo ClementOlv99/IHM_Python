@@ -105,8 +105,10 @@ def Direction_input_callback(io_type, name, value_type, value, my_data):
         agent_object = my_data
         assert isinstance(agent_object, Moteur_Jeu)
         agent_object.DirectionI = value
+        print(f"🎯 Direction input received: {value} (current: {agent_object.current_direction}, pending: {agent_object.pending_direction})")
         # Buffer direction change (applied next cycle to prevent invalid turns)
         agent_object.set_pending_direction(value)
+        print(f"🎯 After set_pending_direction: pending={agent_object.pending_direction}")
     except:
         print(traceback.format_exc())
 

@@ -45,10 +45,10 @@ class Moteur_Jeu(metaclass=Singleton):
     TILE_TRAP_APPLE = 5
     
     # Direction constants (matching input detector)
-    DIR_UP = 0
-    DIR_RIGHT = 1
-    DIR_DOWN = 2
-    DIR_LEFT = 3
+    DIR_UP = 1
+    DIR_RIGHT = 2
+    DIR_DOWN = 3
+    DIR_LEFT = 4
     
     # Direction vectors (x, y) for movement
     DIRECTION_VECTORS = {
@@ -82,14 +82,14 @@ class Moteur_Jeu(metaclass=Singleton):
         # Level data
         self.layout = []               # Immutable base layout
         self.current_layout = []       # Working copy (items removed when eaten)
-        self.cycle_duration = 0.2      # Seconds per game tick
+        self.cycle_duration = 1.0      # Seconds per game tick
         self.last_cycle_time = 0.0
         
         # Special positions
         self.entry_position = None     # (x, y) spawn point
         self.exit_position = None      # (x, y) level exit
         
-        igs.info("Moteur_Jeu initialized - ready to receive level data")
+        print("✅ Moteur_Jeu initialized - ready to receive level data")
     
     # Ingescape outputs
     @property
@@ -117,18 +117,22 @@ class Moteur_Jeu(metaclass=Singleton):
         Initialize a new level from received data.
         
         Args:
-            level_data (dict): {
-                "layout": [[tile, ...], ...],  # 2D array with items included
-                "cycle_duration": float
-            }
+            level_data (array): [[tile, ...], ...],  # 2D array with items included
+
         
         Layout tiles: 0=floor, 1=wall, 2=entry, 3=exit, 4=apple, 5=trap
         """
         try:
-            # Store base layout
-            self.layout = level_data["layout"]
-            self.cycle_duration = level_data.get("cycle_duration", 0.2)
+            print(f"🎮 Initializing level with data: {json.dumps(level_data)[:200]}...")
             
+            # Extract layout array from level data (level data IS layout array)
+            self.layout = level_data
+            
+            # Extract cycle duration if provided
+            if "cycle_duration" in level_data:
+                self.cycle_duration = level_data["cycle_duration"]
+                print(f"⏱️  Cycle duration set to {self.cycle_duration}s")
+
             # Create working copy (will be modified as items are eaten)
             self.current_layout = [row[:] for row in self.layout]
             
@@ -139,24 +143,64 @@ class Moteur_Jeu(metaclass=Singleton):
             height = len(self.layout)
             width = len(self.layout[0]) if height > 0 else 0
             
+            print(f"📏 Level dimensions: {width}x{height}")
+            
             for y in range(height):
                 for x in range(width):
                     tile = self.layout[y][x]
                     if tile == self.TILE_ENTRY:
                         self.entry_position = (x, y)
+                        print(f"🚪 Found entry at ({x}, {y})")
                     elif tile == self.TILE_EXIT:
                         self.exit_position = (x, y)
+                        print(f"🏁 Found exit at ({x}, {y})")
             
             # Initialize snake at entry position
             if self.entry_position:
                 x, y = self.entry_position
-                # Place snake with head at entry, trailing to the left
-                self.snake_body = [(x, y), (x - 1, y), (x - 2, y)]
-                self.snake_length = 3
-                self.current_direction = self.DIR_RIGHT
+                
+                # Determine safe direction to place snake tail based on available space
+                # Try: right, left, down, up
+                tail_offsets = [
+                    [(0, 0), (-1, 0), (-2, 0)],  # Head, tail going left
+                    [(0, 0), (1, 0), (2, 0)],    # Head, tail going right
+                    [(0, 0), (0, -1), (0, -2)],  # Head, tail going up
+                    [(0, 0), (0, 1), (0, 2)],    # Head, tail going down
+                ]
+                
+                initial_directions = [self.DIR_RIGHT, self.DIR_LEFT, self.DIR_DOWN, self.DIR_UP]
+                
+                snake_placed = False
+                for tail_pattern, direction in zip(tail_offsets, initial_directions):
+                    # Check if all positions are valid
+                    positions = [(x + dx, y + dy) for dx, dy in tail_pattern]
+                    valid = True
+                    
+                    for px, py in positions:
+                        if px < 0 or px >= width or py < 0 or py >= height:
+                            valid = False
+                            break
+                        tile = self.layout[py][px]
+                        if tile == self.TILE_WALL:
+                            valid = False
+                            break
+                    
+                    if valid:
+                        self.snake_body = positions
+                        self.current_direction = direction
+                        snake_placed = True
+                        print(f"🐍 Snake placed: {self.snake_body}, facing direction {direction}")
+                        break
+                
+                if not snake_placed:
+                    print("❌ Cannot place snake - no valid space near entry!")
+                    self.snake_body = [(x, y)]  # At least place head
+                    self.current_direction = self.DIR_RIGHT
+                
+                self.snake_length = len(self.snake_body)
                 self.pending_direction = None
             else:
-                igs.error("Level has no entry point (tile 2)!")
+                print("❌ Level has no entry point (tile 2)!")
                 self.snake_body = []
             
             # Reset game state
@@ -167,15 +211,16 @@ class Moteur_Jeu(metaclass=Singleton):
             self.level_complete = False
             self.last_cycle_time = time.time()
             
-            igs.info(f"Level initialized: {width}x{height}, spawn at {self.entry_position}")
+            print(f"✅ Level initialized: {width}x{height}, snake at {self.entry_position}, length={self.snake_length}")
+            print(f"🐍 Snake body: {self.snake_body}")
             
             # Send initial state to renderer
             self.send_display_update()
             
         except Exception as e:
-            igs.error(f"Failed to initialize level: {e}")
+            print(f"❌ Failed to initialize level: {e}")
             import traceback
-            igs.error(traceback.format_exc())
+            print(traceback.format_exc())
     
     # Input Handling
     
@@ -187,7 +232,10 @@ class Moteur_Jeu(metaclass=Singleton):
         Args:
             new_direction (int): DIR_UP, DIR_RIGHT, DIR_DOWN, or DIR_LEFT
         """
+        print(f"🔄 set_pending_direction called with {new_direction}")
+        
         if new_direction not in [self.DIR_UP, self.DIR_RIGHT, self.DIR_DOWN, self.DIR_LEFT]:
+            print(f"❌ Invalid direction: {new_direction}")
             return
         
         # Check if trying to reverse direction (invalid)
@@ -200,6 +248,9 @@ class Moteur_Jeu(metaclass=Singleton):
         
         if new_direction != opposite_dirs[self.current_direction]:
             self.pending_direction = new_direction
+            print(f"✅ Pending direction set to {new_direction}")
+        else:
+            print(f"❌ Cannot reverse direction: {new_direction} is opposite to {self.current_direction}")
     
     # Game Loop
     
@@ -209,17 +260,26 @@ class Moteur_Jeu(metaclass=Singleton):
         Handles snake movement, collision detection, and item collection.
         """
         # Skip if paused, game over, or level complete
-        if self.paused or self.game_over or self.level_complete:
+        if self.paused:
+            return
+        if self.game_over:
+            return
+        if self.level_complete:
             return
         
         # Skip if no snake (invalid level)
         if not self.snake_body:
+            print("⚠️  No snake body - level not initialized?")
             return
+        
+        print(f"🎮 Game cycle: snake at {self.snake_body[0]}, direction={self.current_direction}, pending={self.pending_direction}")
         
         # 1. Apply pending direction change
         if self.pending_direction is not None:
+            old_direction = self.current_direction
             self.current_direction = self.pending_direction
             self.pending_direction = None
+            print(f"➡️  Direction changed: {old_direction} → {self.current_direction}")
         
         # 2. Calculate new head position
         head_x, head_y = self.snake_body[0]
@@ -228,6 +288,8 @@ class Moteur_Jeu(metaclass=Singleton):
         
         # 3. Check self collision
         if new_head in self.snake_body:
+            # Add collision position to snake for visual feedback
+            self.snake_body.insert(0, new_head)
             self.trigger_game_over("Collision with self")
             return
         
@@ -238,6 +300,8 @@ class Moteur_Jeu(metaclass=Singleton):
         width = len(self.current_layout[0]) if height > 0 else 0
         
         if new_y < 0 or new_y >= height or new_x < 0 or new_x >= width:
+            # Add out-of-bounds position to snake for visual feedback
+            self.snake_body.insert(0, new_head)
             self.trigger_game_over("Out of bounds")
             return
         
@@ -246,6 +310,8 @@ class Moteur_Jeu(metaclass=Singleton):
         
         # 6. Handle tile interactions
         if tile == self.TILE_WALL:
+            # Add collision position to snake for visual feedback
+            self.snake_body.insert(0, new_head)
             self.trigger_game_over("Hit wall")
             return
         
@@ -259,14 +325,14 @@ class Moteur_Jeu(metaclass=Singleton):
             self.growth_pending += 1
             # Replace apple with floor in working layout
             self.current_layout[new_y][new_x] = self.TILE_FLOOR
-            igs.info(f"Apple eaten! Score: {self.score}")
+            print(f"🍎 Apple eaten! Score: {self.score}")
         
         elif tile == self.TILE_TRAP_APPLE:
             # Trap apple: grow but no score
             self.growth_pending += 1
             # Replace trap with floor
             self.current_layout[new_y][new_x] = self.TILE_FLOOR
-            igs.info("Trap apple eaten (no score)")
+            print("💀 Trap apple eaten (no score)")
         
         # 7. Move snake - add new head
         self.snake_body.insert(0, new_head)
@@ -293,7 +359,7 @@ class Moteur_Jeu(metaclass=Singleton):
             reason (str): Cause of game over
         """
         self.game_over = True
-        igs.warn(f"🔴 GAME OVER: {reason} | Score: {self.score} | Length: {self.snake_length}")
+        print(f"🔴 GAME OVER: {reason} | Score: {self.score} | Length: {self.snake_length}")
         
         # Send impulse to other agents
         self.set_Game_OverO()
@@ -304,7 +370,7 @@ class Moteur_Jeu(metaclass=Singleton):
     def trigger_level_complete(self):
         """Handle level completion."""
         self.level_complete = True
-        igs.info(f"🎉 Level {self.level_number} complete! Score: {self.score}")
+        print(f"🎉 Level {self.level_number} complete! Score: {self.score}")
         
         self.level_number += 1
         
@@ -334,8 +400,10 @@ class Moteur_Jeu(metaclass=Singleton):
         }
         """
         try:
+            snake_positions = [[x, y] for x, y in self.snake_body]
+            
             display_data = {
-                "snake": [[x, y] for x, y in self.snake_body],
+                "snake": snake_positions,
                 "layout": self.current_layout,
                 "paused": self.paused,
                 "game_state": {
@@ -346,11 +414,13 @@ class Moteur_Jeu(metaclass=Singleton):
                 }
             }
             
+            print(f"📡 Sending display update: snake={snake_positions[:3]}{'...' if len(snake_positions) > 3 else ''}, score={self.score}, length={self.snake_length}")
+            
             # Convert to bytes for DATA output
             self.DisplayO = json.dumps(display_data).encode()
             
         except Exception as e:
-            igs.error(f"Failed to send display update: {e}")
+            print(f"❌ Failed to send display update: {e}")
 
 
 
