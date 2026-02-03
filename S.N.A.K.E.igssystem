@@ -744,6 +744,10 @@
                         {
                             "name": "config",
                             "type": "INTEGER"
+                        },
+                        {
+                            "name": "game_over",
+                            "type": "IMPULSION"
                         }
                     ],
                     "outputs": [
@@ -1028,8 +1032,8 @@
                     "uuid": "7529cd8e-7db5-4916-acb3-548b31e5bfed",
                     "width": 250,
                     "x": -300.8292949386713,
-                    "y": 1091.8945165143587,
-                    "z": 3.7299999999999645
+                    "y": 1095.7722396887543,
+                    "z": 4.40999999999995
                 },
                 {
                     "data": {
@@ -1566,6 +1570,12 @@
                         "fromInput": "clear",
                         "to": "Traitement_Input_Whiteboard",
                         "toOutput": "refresh"
+                    },
+                    {
+                        "from": "Superviseur",
+                        "fromInput": "game_over",
+                        "to": "Moteur_Jeu",
+                        "toOutput": "game_over"
                     }
                 ],
                 "others": [

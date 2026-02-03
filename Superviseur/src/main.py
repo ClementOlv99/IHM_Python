@@ -20,7 +20,7 @@ from Superviseur import *
 
 port = 5670
 agent_name = "Superviseur"
-device = None
+device = "Loopback Pseudo-Interface 1"
 verbose = False
 is_interrupted = False
 
@@ -117,6 +117,14 @@ def Config_input_callback(io_type, name, value_type, value, my_data):
     except:
         print(traceback.format_exc())
 
+def Game_Over_input_callback(io_type, name, value_type, value, my_data):
+    try:
+        agent_object = my_data
+        assert isinstance(agent_object, Superviseur)
+        # add code here if needed
+    except:
+        print(traceback.format_exc())
+
 if __name__ == "__main__":
 
     # catch SIGINT handler before starting agent
@@ -186,6 +194,8 @@ if __name__ == "__main__":
     igs.observe_input("new_level", New_Level_input_callback, agent)
     igs.input_create("config", igs.INTEGER_T, None)
     igs.observe_input("config", Config_input_callback, agent)
+    igs.input_create("game_over", igs.IMPULSION_T, None)
+    igs.observe_input("game_over", Game_Over_input_callback, agent)
 
     igs.output_create("difficulty_level", igs.INTEGER_T, None)
     igs.output_create("level_config", igs.INTEGER_T, None)
