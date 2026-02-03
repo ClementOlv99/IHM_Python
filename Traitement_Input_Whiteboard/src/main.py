@@ -123,20 +123,43 @@ def Button_Pressed_input_callback(io_type, name, value_type, value, my_data):
                 igs.service_call("Whiteboard", "hideLabels", None, None)
                 igs.service_call("Whiteboard", "setBackgroundColor", "white", None)
                 igs.service_call("Whiteboard","getWhiteboardSize",None,None)
-                agent.XO = agent.width/2
-                agent.YO = agent.height/2
-                agent.WidthO = agent.width/4
-                agent.HeightO = agent.height/4
-                agent.Stroke_WitdthO = 2
-                agent.ColorO = "red"
-                agent.Color_StrokeO = "black"
-                agent.ContentO = "square"
-                agent.set_Add_ShapeO()
-                #agent.XO = agent.width/2
-                #agent.YO = agent.height/2
-                #agent.ColorO = "red"
-                #agent.ContentO = "suuuuu"
-                #agent.set_Add_TextO()
+                match agent.difficulty:
+                    case 1 : 
+                        agent.dmenu1(50,50,150,65)
+                        agent.menu1(50,150,150,65)
+                        agent.menu1(50,250,150,65)
+                        agent.menu1(50,350,150,65)
+                        agent.dmenu2("Easy",90,60)
+                        agent.menu2("Normal",65,160)
+                        agent.menu2("Hard",90,260)
+                        agent.menu2("Quit",90,360)
+                    case 2 : 
+                        agent.menu1(50,50,150,65)
+                        agent.dmenu1(50,150,150,65)
+                        agent.menu1(50,250,150,65)
+                        agent.menu1(50,350,150,65)
+                        agent.menu2("Easy",90,60)
+                        agent.dmenu2("Normal",65,160)
+                        agent.menu2("Hard",90,260)
+                        agent.menu2("Quit",90,360)
+                    case 3 : 
+                        agent.menu1(50,50,150,65)
+                        agent.menu1(50,150,150,65)
+                        agent.dmenu1(50,250,150,65)
+                        agent.menu1(50,350,150,65)
+                        agent.menu2("Easy",90,60)
+                        agent.menu2("Normal",65,160)
+                        agent.dmenu2("Hard",90,260)
+                        agent.menu2("Quit",90,360)
+                    case 4 : 
+                        agent.menu1(50,50,150,65)
+                        agent.menu1(50,150,150,65)
+                        agent.menu1(50,250,150,65)
+                        agent.dmenu1(50,350,150,65)
+                        agent.menu2("Easy",90,60)
+                        agent.menu2("Normal",65,160)
+                        agent.menu2("Hard",90,260)
+                        agent.dmenu2("Quit",90,360)
     except:
         print(traceback.format_exc())
 

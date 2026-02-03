@@ -153,3 +153,39 @@ class Traitement_Input_Whiteboard(metaclass=Singleton):
                         case _:
                             self.difficulty = self.difficulty +1
                             return 1
+    
+    def menu1(self,x,y,w,h):
+        self.XO = x
+        self.YO = y
+        self.WidthO = w
+        self.HeightO = h
+        self.Stroke_WitdthO = 1
+        self.ColorO = "lightgreen"
+        self.Color_StrokeO = "green"
+        self.ContentO = "square"
+        self.set_Add_ShapeO()
+
+    def dmenu1(self,x,y,w,h):
+        self.XO = x
+        self.YO = y
+        self.WidthO = w
+        self.HeightO = h
+        self.Stroke_WitdthO = 1
+        self.ColorO = "green"
+        self.Color_StrokeO = "darkgreen"
+        self.ContentO = "square"
+        self.set_Add_ShapeO()
+    
+    def menu2(self,texte,x,y):
+         self.XO = x
+         self.YO = y
+         self.ColorO = "yellow"
+         self.ContentO = texte
+         self.set_Add_TextO()
+
+    def dmenu2(self,texte,x,y):
+         self.XO = x
+         self.YO = y
+         self.ColorO = "darkyellow"
+         self.ContentO = texte
+         self.set_Add_TextO()
