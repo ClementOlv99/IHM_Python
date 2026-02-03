@@ -9,7 +9,8 @@
 #  Copyright © 2025 Ingenuity i/o. All rights reserved.
 #
 import ingescape as igs
-
+import random
+lvtype = {1 : "random", 2: "preset"}
 
 class Singleton(type):
     _instances = {}
@@ -28,6 +29,9 @@ class Superviseur(metaclass=Singleton):
         self._Difficulty_LevelO = None
         self._Level_ConfigO = None
         self._Level_TypeO = None
+
+        #attribut
+        self.ready = False
 
     # outputs
     @property
@@ -57,5 +61,34 @@ class Superviseur(metaclass=Singleton):
         self._Level_TypeO = value
         if self._Level_TypeO is not None:
             igs.output_set_string("level_type", self._Level_TypeO)
+
+    def reset(self,config):
+        self.seed = random.randint(1,100000000000000000000)
+        self.level = 0
+        self.config = config
+        self.ready = True
+
+    def superviseur(self):
+        match self.level:
+            case 0:              
+                self.level=self.level+self.config
+                return lvtype[2],0
+            case 6:
+                lvconfig=1
+                self.level =self.level+self.config
+                return lvtype[2],lvconfig
+            case 12:
+                lvconfig=2
+                self.level=self.level+self.config
+                return lvtype[2],lvconfig
+            case 18:
+                lvconfig=3
+                self.level=self.level+self.config
+                return lvtype[2],lvconfig
+            case _:
+                lvconfig=self.seed+self.level
+                self.level=self.level+self.config
+                return lvtype[1],lvconfig
+
 
 
