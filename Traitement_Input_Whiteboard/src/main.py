@@ -93,7 +93,9 @@ def on_agent_event_callback(event, uuid, name, event_data, my_data):
     try:
         agent_object = my_data
         assert isinstance(agent_object, Traitement_Input_Whiteboard)
-        # add code here if needed
+        igs.service_call("Whiteboard", "clear", None, None)
+        igs.service_call("Whiteboard", "hideLabels", None, None)
+        agent.lancer()
     except:
         print(traceback.format_exc())
 
@@ -231,7 +233,7 @@ if __name__ == "__main__":
 
     # catch SIGINT handler after starting agent
     signal.signal(signal.SIGINT, signal_handler)
-    agent.lancer()
+
     if interactive_loop:
         print_usage_help()
         while True:
