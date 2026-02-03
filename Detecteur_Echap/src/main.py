@@ -170,7 +170,7 @@ if __name__ == "__main__":
     signal.signal(signal.SIGINT, signal_handler)
 
     while True :
-        agent.PausePressedO = agent.echap()
+        agent.Pause_PressedO = agent.echap()
 
 
     igs.stop()
