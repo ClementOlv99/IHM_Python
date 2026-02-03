@@ -196,3 +196,50 @@ class Traitement_Input_Whiteboard(metaclass=Singleton):
          self.ColorO = color
          self.ContentO = texte
          self.set_Add_TextO()
+
+    def lancer(self):
+        igs.service_call("Whiteboard", "clear", None, None)
+        igs.service_call("Whiteboard", "hideLabels", None, None)
+        igs.service_call("Whiteboard", "setBackgroundColor", "white", None)
+        igs.service_call("Whiteboard","getWhiteboardSize",None,None)
+        self.texte("S.N.A.K.E",250,0,"pantone")
+        self.texte("up key to go up",300,100,"darkred")
+        self.texte("down key to go down",300,200,"darkred")
+        self.texte("enter to validate",300,300,"darkred")
+        match self.difficulty:
+            case 1 : 
+                self.dmenu1(50,50,150,65)
+                self.menu1(50,150,150,65)
+                self.menu1(50,250,150,65)
+                self.menu1(50,350,150,65)
+                self.dmenu2("Easy",90,60)
+                self.menu2("Normal",65,160)
+                self.menu2("Hard",90,260)
+                self.menu2("Quit",90,360)
+            case 2 : 
+                self.menu1(50,50,150,65)
+                self.dmenu1(50,150,150,65)
+                self.menu1(50,250,150,65)
+                self.menu1(50,350,150,65)
+                self.menu2("Easy",90,60)
+                self.dmenu2("Normal",65,160)
+                self.menu2("Hard",90,260)
+                self.menu2("Quit",90,360)
+            case 3 : 
+                self.menu1(50,50,150,65)
+                self.menu1(50,150,150,65)
+                self.dmenu1(50,250,150,65)
+                self.menu1(50,350,150,65)
+                self.menu2("Easy",90,60)
+                self.menu2("Normal",65,160)
+                self.dmenu2("Hard",90,260)
+                self.menu2("Quit",90,360)
+            case 4 : 
+                self.menu1(50,50,150,65)
+                self.menu1(50,150,150,65)
+                self.menu1(50,250,150,65)
+                self.dmenu1(50,350,150,65)
+                self.menu2("Easy",90,60)
+                self.menu2("Normal",65,160)
+                self.menu2("Hard",90,260)
+                self.dmenu2("Quit",90,360)

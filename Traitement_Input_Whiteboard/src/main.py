@@ -119,51 +119,7 @@ def Button_Pressed_input_callback(io_type, name, value_type, value, my_data):
                 igs.service_call("Whiteboard", "clear", None, None)
                 igs.service_call("Whiteboard", "hideLabels", None, None)
             case 1:
-                igs.service_call("Whiteboard", "clear", None, None)
-                igs.service_call("Whiteboard", "hideLabels", None, None)
-                igs.service_call("Whiteboard", "setBackgroundColor", "white", None)
-                igs.service_call("Whiteboard","getWhiteboardSize",None,None)
-                agent.texte("S.N.A.K.E",250,0,"pantone")
-                agent.texte("up key to go up",300,100,"darkred")
-                agent.texte("down key to go down",300,200,"darkred")
-                agent.texte("enter to validate",300,300,"darkred")
-                match agent.difficulty:
-                    case 1 : 
-                        agent.dmenu1(50,50,150,65)
-                        agent.menu1(50,150,150,65)
-                        agent.menu1(50,250,150,65)
-                        agent.menu1(50,350,150,65)
-                        agent.dmenu2("Easy",90,60)
-                        agent.menu2("Normal",65,160)
-                        agent.menu2("Hard",90,260)
-                        agent.menu2("Quit",90,360)
-                    case 2 : 
-                        agent.menu1(50,50,150,65)
-                        agent.dmenu1(50,150,150,65)
-                        agent.menu1(50,250,150,65)
-                        agent.menu1(50,350,150,65)
-                        agent.menu2("Easy",90,60)
-                        agent.dmenu2("Normal",65,160)
-                        agent.menu2("Hard",90,260)
-                        agent.menu2("Quit",90,360)
-                    case 3 : 
-                        agent.menu1(50,50,150,65)
-                        agent.menu1(50,150,150,65)
-                        agent.dmenu1(50,250,150,65)
-                        agent.menu1(50,350,150,65)
-                        agent.menu2("Easy",90,60)
-                        agent.menu2("Normal",65,160)
-                        agent.dmenu2("Hard",90,260)
-                        agent.menu2("Quit",90,360)
-                    case 4 : 
-                        agent.menu1(50,50,150,65)
-                        agent.menu1(50,150,150,65)
-                        agent.menu1(50,250,150,65)
-                        agent.dmenu1(50,350,150,65)
-                        agent.menu2("Easy",90,60)
-                        agent.menu2("Normal",65,160)
-                        agent.menu2("Hard",90,260)
-                        agent.dmenu2("Quit",90,360)
+                agent.lancer()
     except:
         print(traceback.format_exc())
 
@@ -272,6 +228,7 @@ if __name__ == "__main__":
     igs.output_create("content", igs.STRING_T, None)
 
     igs.start_with_device(device, port)
+    agent.lancer()
     # catch SIGINT handler after starting agent
     signal.signal(signal.SIGINT, signal_handler)
 
