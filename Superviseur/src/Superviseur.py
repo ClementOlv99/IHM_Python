@@ -63,7 +63,7 @@ class Superviseur(metaclass=Singleton):
             igs.output_set_string("level_type", self._Level_TypeO)
 
     def reset(self,config):
-        self.seed = random.randint(1,100000000000000000000)
+        self.seed = random.randint(1,1000000)
         self.level = 0
         self.config = config
         self.ready = True
