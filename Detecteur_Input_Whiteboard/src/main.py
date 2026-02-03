@@ -20,7 +20,7 @@ from Detecteur_Input_Whiteboard import *
 
 port = 5670
 agent_name = "Detecteur_Input_Whiteboard"
-device = None
+device = "Loopback Pseudo-Interface 1"
 verbose = False
 is_interrupted = False
 
@@ -170,6 +170,6 @@ if __name__ == "__main__":
     signal.signal(signal.SIGINT, signal_handler)
 
     while True:
-        agent._Button_PressedO = agent.inpWithe()
+        agent.Button_PressedO = agent.inpWithe()
 
     igs.stop()

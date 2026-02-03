@@ -170,6 +170,6 @@ if __name__ == "__main__":
     signal.signal(signal.SIGINT, signal_handler)
 
     while True :
-        agent._DirectionO = agent.dir()
+        agent.DirectionO = agent.dir()
 
     igs.stop()
