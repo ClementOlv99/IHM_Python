@@ -123,6 +123,10 @@ def Button_Pressed_input_callback(io_type, name, value_type, value, my_data):
                 igs.service_call("Whiteboard", "hideLabels", None, None)
                 igs.service_call("Whiteboard", "setBackgroundColor", "white", None)
                 igs.service_call("Whiteboard","getWhiteboardSize",None,None)
+                agent.texte("S.N.A.K.E",100,0,"pantone")
+                agent.texte("up key to go up",100,0,"darkred")
+                agent.texte("down key to go down",100,0,"darkred")
+                agent.texte("enter to validate",100,0,"darkred")
                 match agent.difficulty:
                     case 1 : 
                         agent.dmenu1(50,50,150,65)

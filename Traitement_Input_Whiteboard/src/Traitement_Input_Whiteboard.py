@@ -189,3 +189,10 @@ class Traitement_Input_Whiteboard(metaclass=Singleton):
          self.ColorO = "darkyellow"
          self.ContentO = texte
          self.set_Add_TextO()
+
+    def texte(self,texte,x,y,color):
+         self.XO = x
+         self.YO = y
+         self.ColorO = color
+         self.ContentO = texte
+         self.set_Add_TextO()
