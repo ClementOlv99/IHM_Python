@@ -105,7 +105,10 @@ def Display_input_callback(io_type, name, value_type, value, my_data):
         agent_object = my_data
         assert isinstance(agent_object, Affichage)
         agent_object.DisplayI = value
-        # add code here if needed
+        
+        # Forward data to Godot renderer via HTTP
+        if value:
+            agent_object.forward_display_data(value)
     except:
         print(traceback.format_exc())
 
@@ -194,4 +197,7 @@ if __name__ == "__main__":
         while (not is_interrupted) and igs.is_started():
             time.sleep(0.1)
 
+    # Cleanup Godot process before exiting
+    agent.cleanup()
+    
     igs.stop()

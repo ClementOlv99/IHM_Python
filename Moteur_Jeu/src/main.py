@@ -105,7 +105,8 @@ def Direction_input_callback(io_type, name, value_type, value, my_data):
         agent_object = my_data
         assert isinstance(agent_object, Moteur_Jeu)
         agent_object.DirectionI = value
-        # add code here if needed
+        # Buffer direction change (applied next cycle to prevent invalid turns)
+        agent_object.set_pending_direction(value)
     except:
         print(traceback.format_exc())
 
@@ -114,7 +115,10 @@ def Pause_input_callback(io_type, name, value_type, value, my_data):
         agent_object = my_data
         assert isinstance(agent_object, Moteur_Jeu)
         agent_object.PauseI = value
-        # add code here if needed
+        # Update pause state and send display update
+        agent_object.paused = value
+        agent_object.send_display_update()
+        igs.info(f"Game {'paused' if value else 'resumed'}")
     except:
         print(traceback.format_exc())
 
@@ -123,7 +127,12 @@ def Level_input_callback(io_type, name, value_type, value, my_data):
         agent_object = my_data
         assert isinstance(agent_object, Moteur_Jeu)
         agent_object.LevelI = value
-        # add code here if needed
+        
+        # Parse level data (value is bytes) and initialize
+        if value:
+            import json
+            level_data = json.loads(value.decode())
+            agent_object.initialize_level(level_data)
     except:
         print(traceback.format_exc())
 
@@ -206,6 +215,9 @@ if __name__ == "__main__":
     igs.start_with_device(device, port)
     # catch SIGINT handler after starting agent
     signal.signal(signal.SIGINT, signal_handler)
+    
+    # Initialize game cycle timer
+    agent.last_cycle_time = time.time()
 
     if interactive_loop:
         print_usage_help()
@@ -216,7 +228,14 @@ if __name__ == "__main__":
             elif command == "/help":
                 print_usage_help()
     else:
+        # Game loop with cycle timing
         while (not is_interrupted) and igs.is_started():
-            time.sleep(0.1)
+            current_time = time.time()
+            # Check if enough time has passed for next game cycle
+            if current_time - agent.last_cycle_time >= agent.cycle_duration:
+                agent.last_cycle_time = current_time
+                agent.game_cycle()  # Execute one game tick
+            
+            time.sleep(0.01)  # Small sleep to prevent CPU spinning
 
     igs.stop()

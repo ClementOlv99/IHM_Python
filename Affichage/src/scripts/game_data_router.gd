@@ -31,7 +31,8 @@ func _init(endpoint_path: String = "/game_data") -> void:
 ## Handles POST requests with JSON game data
 func _handle_post_request(request: HttpRequest, response: HttpResponse) -> bool:
 	var body = request.body
-	
+	print("Received POST body: ", body)
+
 	if body.is_empty():
 		response.send(400, "Empty request body")
 		return true
