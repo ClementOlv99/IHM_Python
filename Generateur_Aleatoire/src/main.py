@@ -116,7 +116,6 @@ def Seed_input_callback(io_type, name, value_type, value, my_data):
         CenterThird = np.hstack((agent_object.border(1, depart == 3, finish == 3), agent_object.center(depart == 4, finish == 4), agent_object.border(3, depart == 5, finish == 5)))
         SouthThird = np.hstack((agent_object.corner(1, depart == 6, finish == 6), agent_object.border(2, depart == 7, finish == 7), agent_object.corner(2, depart == 8, finish == 8)))
         Layout = np.vstack((NorthThird, CenterThird, SouthThird))
-        print("Layout Called")
         SerialLayout = json.dumps(Layout.tolist())
         agent_object.LayoutO = bytes(SerialLayout, 'utf-8')
     except:

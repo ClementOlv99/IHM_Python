@@ -106,6 +106,10 @@ def Difficulty_Level_input_callback(io_type, name, value_type, value, my_data):
         assert isinstance(agent_object, Generateur_Elements)
         agent_object.Difficulty_LevelI = value
         # add code here if needed
+        list_elem = agent_object.Gen_List(value)
+        print(list_elem)
+        print(bytes(list_elem))
+        agent_object.Element_ArrayO = bytes(list_elem)
     except:
         print(traceback.format_exc())
 

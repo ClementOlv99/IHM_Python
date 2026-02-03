@@ -106,6 +106,9 @@ def Level_Number_input_callback(io_type, name, value_type, value, my_data):
         assert isinstance(agent_object, Generateur_Manuel)
         agent_object.Level_NumberI = value
         # add code here if needed
+        Layout = agent_object.select_level(value)
+        SerialLayout = json.dumps(Layout.tolist())
+        agent_object.LayoutO = bytes(SerialLayout, 'utf-8')
     except:
         print(traceback.format_exc())
 

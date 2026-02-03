@@ -743,7 +743,7 @@
                         },
                         {
                             "name": "config",
-                            "type": "DATA"
+                            "type": "INTEGER"
                         }
                     ],
                     "outputs": [
@@ -789,7 +789,7 @@
                         },
                         {
                             "name": "config",
-                            "type": "DATA"
+                            "type": "INTEGER"
                         },
                         {
                             "name": "refresh",
@@ -818,7 +818,7 @@
                         "instances": [
                             {
                                 "commandLine": "\"C:\\Users\\bbalc\\Desktop\\Proyecto Y ECHE EME\\Whiteboard-win64\\Whiteboard-win64\\Whiteboard.exe\"",
-                                "hostname": "MSI",
+                                "hostname": "DESKTOP-6RUV5UB",
                                 "ip": "127.0.0.1",
                                 "isAttachedToCircle": false,
                                 "uuid": "73804e87-6c6c-48aa-a423-d100235fe6c3"
@@ -850,6 +850,22 @@
                 },
                 {
                     "agent": {
+                        "instances": [
+                            {
+                                "commandLine": "C:\\Users\\cleme\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe main.py",
+                                "hostname": "DESKTOP-6RUV5UB",
+                                "ip": "127.0.0.1",
+                                "isAttachedToCircle": false,
+                                "uuid": "d42609b0-045d-4a56-aba9-57e4c9b0088c"
+                            },
+                            {
+                                "commandLine": "C:\\Users\\cleme\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe C:\\Users\\cleme\\Documents\\Ingescape\\IHM_Python\\Generateur_Aleatoire\\src\\main.py",
+                                "hostname": "DESKTOP-6RUV5UB",
+                                "ip": "127.0.0.1",
+                                "isAttachedToCircle": false,
+                                "uuid": "fe341a80-ba48-4b77-9a54-d7725ba80d3e"
+                            }
+                        ]
                     },
                     "class": "5cc4312b-647c-467f-9339-d6d0d8e73d33",
                     "height": 100,
@@ -859,14 +875,14 @@
                     "width": 250,
                     "x": 519.7875543423554,
                     "y": 1054.3414515216552,
-                    "z": 2.869999999999983
+                    "z": 3.749999999999964
                 },
                 {
                     "agent": {
                         "instances": [
                             {
                                 "commandLine": "C:\\Users\\bbalc\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe c:/Users/bbalc/Desktop/ProjetIHM/Generateur_Elements/src/main.py",
-                                "hostname": "MSI",
+                                "hostname": "DESKTOP-6RUV5UB",
                                 "ip": "127.0.0.1",
                                 "isAttachedToCircle": false,
                                 "uuid": "c83785ee-15d7-4281-bfd4-5e8f210f20be"
@@ -881,10 +897,19 @@
                     "width": 250,
                     "x": 519.5223355508858,
                     "y": 931.2843018858739,
-                    "z": 3.179999999999976
+                    "z": 3.839999999999962
                 },
                 {
                     "agent": {
+                        "instances": [
+                            {
+                                "commandLine": "C:\\Users\\cleme\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe main.py",
+                                "hostname": "DESKTOP-6RUV5UB",
+                                "ip": "127.0.0.1",
+                                "isAttachedToCircle": false,
+                                "uuid": "786b5f22-ff99-4eca-ba8e-76ea19c7b023"
+                            }
+                        ]
                     },
                     "class": "6a926e44-aa00-4a30-9f2a-4bf7cd16d542",
                     "height": 100,
@@ -894,7 +919,7 @@
                     "width": 250,
                     "x": 517.043667413102,
                     "y": 1162.039327337526,
-                    "z": 3.1699999999999764
+                    "z": 3.8299999999999623
                 },
                 {
                     "agent": {
@@ -944,9 +969,9 @@
                     "simulationTime": 5000,
                     "uuid": "170a723c-b3da-4b99-b867-3374d97a6ecd",
                     "width": 250,
-                    "x": -1038.3733414025914,
+                    "x": -1027.3064491735277,
                     "y": 1479.4185040395,
-                    "z": 2.8299999999999836
+                    "z": 3.7399999999999642
                 },
                 {
                     "data": {
@@ -979,7 +1004,7 @@
                     "width": 250,
                     "x": -300.8292949386713,
                     "y": 1091.8945165143587,
-                    "z": 2.959999999999981
+                    "z": 3.7299999999999645
                 },
                 {
                     "data": {
@@ -1392,7 +1417,7 @@
                         "instances": [
                             {
                                 "commandLine": "C:\\Users\\bbalc\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe c:/Users/bbalc/Desktop/ProjetIHM/Affichage/src/main.py",
-                                "hostname": "MSI",
+                                "hostname": "DESKTOP-6RUV5UB",
                                 "ip": "127.0.0.1",
                                 "isAttachedToCircle": false,
                                 "uuid": "4ea65a9c-1af0-4be5-b637-05ed5cf2fef8"
@@ -1407,7 +1432,7 @@
                     "width": 250,
                     "x": 1951.520745377648,
                     "y": 1009.3944446683131,
-                    "z": 3.329999999999973
+                    "z": 3.759999999999964
                 },
                 {
                     "agent": {
@@ -1431,17 +1456,20 @@
                 },
                 {
                     "data": {
+                        "entries": [
+                            "1"
+                        ],
                         "value_type": "INTEGER"
                     },
                     "height": 88,
                     "isExpanded": true,
                     "name": "",
                     "tool": "com.ingescape.circle.tool.writer",
-                    "uuid": "b2745cbd-9eb9-4903-9af5-52644421ca44",
+                    "uuid": "2a042547-0fd9-4afa-81cb-1ebfaf11ab8f",
                     "width": 250,
-                    "x": -138.6563190234483,
-                    "y": 910.7173045182965,
-                    "z": 3.2699999999999743
+                    "x": -334.7004874991849,
+                    "y": 801.1845567641067,
+                    "z": 3.889999999999961
                 },
                 {
                     "data": {
@@ -1456,11 +1484,11 @@
                     "isExpanded": true,
                     "name": "",
                     "tool": "com.ingescape.circle.tool.observer",
-                    "uuid": "be86b3da-2a7c-407a-b74d-6680318cd0d9",
+                    "uuid": "98cb26a5-809b-4b38-a468-89adf328473d",
                     "width": 250,
-                    "x": 1035.9825267148194,
-                    "y": 978.6385563895998,
-                    "z": 3.2499999999999747
+                    "x": 1087.6775604419954,
+                    "y": 930.4592599365917,
+                    "z": 3.8799999999999613
                 }
             ],
             "links": {
@@ -1714,26 +1742,26 @@
                         }
                     },
                     {
-                        "destination": "72e317f6-1e5f-4b5b-900c-a10b09340e51",
+                        "destination": "f7c14cb5-aa14-4fd1-b306-086100abad34",
                         "destinationIO": {
-                            "name": "seed",
+                            "name": "difficulty_level",
                             "type": "INPUT"
                         },
-                        "source": "b2745cbd-9eb9-4903-9af5-52644421ca44",
+                        "source": "2a042547-0fd9-4afa-81cb-1ebfaf11ab8f",
                         "sourceIO": {
                             "name": "value",
                             "type": "OUTPUT"
                         }
                     },
                     {
-                        "destination": "be86b3da-2a7c-407a-b74d-6680318cd0d9",
+                        "destination": "98cb26a5-809b-4b38-a468-89adf328473d",
                         "destinationIO": {
                             "name": "wildcard",
                             "type": "INPUT"
                         },
-                        "source": "72e317f6-1e5f-4b5b-900c-a10b09340e51",
+                        "source": "f7c14cb5-aa14-4fd1-b306-086100abad34",
                         "sourceIO": {
-                            "name": "layout",
+                            "name": "element_array",
                             "type": "OUTPUT"
                         }
                     }

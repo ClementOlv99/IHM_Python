@@ -9,6 +9,12 @@
 #  Copyright © 2025 Ingenuity i/o. All rights reserved.
 #
 import ingescape as igs
+import os
+import numpy as np
+import json
+
+
+DirLayout = "../Layouts/"
 
 class Singleton(type):
     _instances = {}
@@ -36,5 +42,22 @@ class Generateur_Manuel(metaclass=Singleton):
         self._LayoutO = value
         if self._LayoutO is not None:
             igs.output_set_data("layout", value)
+	
+    
+# Level indicate the chosen layout : 0 = Tutorial, 1 = CheckItUp, 2 = Cave, 3 = Maze.
+    def select_level(self, level):
+        match level:
+            case 0:
+                choice="start.txt"
+            case 1:
+                choice="CheckItUp.txt"
+            case 2:
+                choice="Cave.txt"
+            case 3:
+                choice="Maze.txt"
+        print(choice)
+        layout = np.loadtxt(DirLayout+choice, dtype='i', delimiter=' ')
+        return layout
+
 
 

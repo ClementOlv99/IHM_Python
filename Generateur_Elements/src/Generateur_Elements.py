@@ -24,16 +24,9 @@ class Generateur_Elements(metaclass=Singleton):
     def __init__(self):
         # inputs
         self.Difficulty_LevelI = None
-        # outputs
-        self._Element_ArrayO = None
-        while True:
-            if self.Difficulty_LevelI is not None:
-                igs.error(f"Difficulty_LevelI Not Empty")
-            else :
-                igs.error(f"Difficulty_LevelI Empty")
-            time.sleep(1)
 
-        
+        # outputs
+        self._Element_ArrayO = None        
 
     # outputs
     @property
@@ -45,5 +38,20 @@ class Generateur_Elements(metaclass=Singleton):
         self._Element_ArrayO = value
         if self._Element_ArrayO is not None:
             igs.output_set_data("element_array", value)
+
+    def Gen_List(self, difficulty):
+        match difficulty:
+            case 0:
+                return [1, 0]
+            case 1:
+                return [0, 0]
+            case 2:
+                return [9, 6]
+            case 3: 
+                return [4, 1]
+            case _:
+                return [difficulty, difficulty//2]
+
+
 
 
