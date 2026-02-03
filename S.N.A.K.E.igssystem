@@ -831,9 +831,9 @@
                     "simulationTime": 5000,
                     "uuid": "88a189d9-87cd-40f6-be41-d53ed0a469cc",
                     "width": 250,
-                    "x": 1373.9777713996496,
-                    "y": 1878.6522959107963,
-                    "z": 3.419999999999971
+                    "x": -787.1740419800326,
+                    "y": 1911.4793344882557,
+                    "z": 4.329999999999952
                 },
                 {
                     "agent": {
@@ -886,6 +886,13 @@
                                 "ip": "127.0.0.1",
                                 "isAttachedToCircle": false,
                                 "uuid": "c83785ee-15d7-4281-bfd4-5e8f210f20be"
+                            },
+                            {
+                                "commandLine": "C:\\Users\\cleme\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe main.py",
+                                "hostname": "DESKTOP-6RUV5UB",
+                                "ip": "127.0.0.1",
+                                "isAttachedToCircle": false,
+                                "uuid": "b656c965-691c-43be-9950-c12441573d27"
                             }
                         ]
                     },
@@ -897,7 +904,7 @@
                     "width": 250,
                     "x": 519.5223355508858,
                     "y": 931.2843018858739,
-                    "z": 3.839999999999962
+                    "z": 3.9999999999999587
                 },
                 {
                     "agent": {
@@ -936,6 +943,15 @@
                 },
                 {
                     "agent": {
+                        "instances": [
+                            {
+                                "commandLine": "C:\\Users\\cleme\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe main.py",
+                                "hostname": "DESKTOP-6RUV5UB",
+                                "ip": "127.0.0.1",
+                                "isAttachedToCircle": false,
+                                "uuid": "ace4ca61-a1df-48f1-9e5b-0f3d9a2f04af"
+                            }
+                        ]
                     },
                     "class": "45edaf05-1375-4e2c-a39b-c150e402c3ea",
                     "height": 100,
@@ -945,10 +961,19 @@
                     "width": 250,
                     "x": 1033.910811032678,
                     "y": 791.6485350161583,
-                    "z": 3.3499999999999726
+                    "z": 4.039999999999958
                 },
                 {
                     "agent": {
+                        "instances": [
+                            {
+                                "commandLine": "C:\\Users\\cleme\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe main.py",
+                                "hostname": "DESKTOP-6RUV5UB",
+                                "ip": "127.0.0.1",
+                                "isAttachedToCircle": false,
+                                "uuid": "86db0c4e-d153-49de-a907-d49766af72df"
+                            }
+                        ]
                     },
                     "class": "8215e672-f4b1-4dd3-9f41-56ced5a11b00",
                     "height": 100,
@@ -971,7 +996,7 @@
                     "width": 250,
                     "x": -1027.3064491735277,
                     "y": 1479.4185040395,
-                    "z": 3.7399999999999642
+                    "z": 4.319999999999952
                 },
                 {
                     "data": {
@@ -989,9 +1014,9 @@
                     "tool": "com.ingescape.circle.tool.branch",
                     "uuid": "24959454-77fb-4473-9a6e-c1b1845fa82e",
                     "width": 140,
-                    "x": -6.207038769339306,
-                    "y": 1454.825368186037,
-                    "z": 3.369999999999972
+                    "x": -198.924834916539,
+                    "y": 1446.698714131637,
+                    "z": 4.189999999999955
                 },
                 {
                     "agent": {
@@ -1026,6 +1051,15 @@
                 },
                 {
                     "agent": {
+                        "instances": [
+                            {
+                                "commandLine": "C:\\Users\\cleme\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe main.py",
+                                "hostname": "DESKTOP-6RUV5UB",
+                                "ip": "127.0.0.1",
+                                "isAttachedToCircle": false,
+                                "uuid": "97f6dff7-7bc9-48ba-abe3-120987f36398"
+                            }
+                        ]
                     },
                     "class": "1c2af5b7-c2c7-4020-a1df-56953f7df5ee",
                     "height": 100,
@@ -1035,7 +1069,7 @@
                     "width": 250,
                     "x": 1032.681645238958,
                     "y": 668.81698230612,
-                    "z": 3.3599999999999723
+                    "z": 4.1699999999999555
                 },
                 {
                     "data": {
@@ -1092,7 +1126,7 @@
                     "width": 350,
                     "x": 500.74914959158366,
                     "y": 1363.544312694293,
-                    "z": 2.849999999999983
+                    "z": 4.399999999999951
                 },
                 {
                     "data": {
@@ -1269,23 +1303,19 @@
                         "argumentValues": [
                             {
                                 "name": "text",
-                                "value": "",
-                                "valueIsImplicit": true
+                                "value": "easy"
                             },
                             {
                                 "name": "x",
-                                "value": null,
-                                "valueIsImplicit": true
+                                "value": "50"
                             },
                             {
                                 "name": "y",
-                                "value": null,
-                                "valueIsImplicit": true
+                                "value": "50"
                             },
                             {
                                 "name": "color",
-                                "value": "",
-                                "valueIsImplicit": true
+                                "value": "black"
                             }
                         ],
                         "selectedAgentUuid": "88a189d9-87cd-40f6-be41-d53ed0a469cc",
@@ -1297,32 +1327,28 @@
                     "tool": "com.ingescape.circle.tool.servicecaller",
                     "uuid": "8502f0ca-5c0f-4087-a2a6-71ad802746a9",
                     "width": 350,
-                    "x": -166.5057692848145,
-                    "y": 1668.949766455876,
-                    "z": 3.379999999999972
+                    "x": -168.82767044321463,
+                    "y": 1667.7888158766755,
+                    "z": 4.3599999999999515
                 },
                 {
                     "data": {
                         "argumentValues": [
                             {
                                 "name": "text",
-                                "value": "",
-                                "valueIsImplicit": true
+                                "value": "normal"
                             },
                             {
                                 "name": "x",
-                                "value": null,
-                                "valueIsImplicit": true
+                                "value": "100"
                             },
                             {
                                 "name": "y",
-                                "value": null,
-                                "valueIsImplicit": true
+                                "value": "100"
                             },
                             {
                                 "name": "color",
-                                "value": "",
-                                "valueIsImplicit": true
+                                "value": "black"
                             }
                         ],
                         "selectedAgentUuid": "88a189d9-87cd-40f6-be41-d53ed0a469cc",
@@ -1336,30 +1362,26 @@
                     "width": 350,
                     "x": -171.89077479422167,
                     "y": 1858.1792839054892,
-                    "z": 3.3899999999999717
+                    "z": 4.369999999999951
                 },
                 {
                     "data": {
                         "argumentValues": [
                             {
                                 "name": "text",
-                                "value": "",
-                                "valueIsImplicit": true
+                                "value": "hard"
                             },
                             {
                                 "name": "x",
-                                "value": null,
-                                "valueIsImplicit": true
+                                "value": "150"
                             },
                             {
                                 "name": "y",
-                                "value": null,
-                                "valueIsImplicit": true
+                                "value": "150"
                             },
                             {
                                 "name": "color",
-                                "value": "",
-                                "valueIsImplicit": true
+                                "value": "black"
                             }
                         ],
                         "selectedAgentUuid": "88a189d9-87cd-40f6-be41-d53ed0a469cc",
@@ -1373,30 +1395,26 @@
                     "width": 350,
                     "x": -173.32036452934176,
                     "y": 2048.6088736406095,
-                    "z": 3.3999999999999715
+                    "z": 4.379999999999951
                 },
                 {
                     "data": {
                         "argumentValues": [
                             {
                                 "name": "text",
-                                "value": "",
-                                "valueIsImplicit": true
+                                "value": "quit"
                             },
                             {
                                 "name": "x",
-                                "value": null,
-                                "valueIsImplicit": true
+                                "value": "200"
                             },
                             {
                                 "name": "y",
-                                "value": null,
-                                "valueIsImplicit": true
+                                "value": "200"
                             },
                             {
                                 "name": "color",
-                                "value": "",
-                                "valueIsImplicit": true
+                                "value": "black"
                             }
                         ],
                         "selectedAgentUuid": "88a189d9-87cd-40f6-be41-d53ed0a469cc",
@@ -1410,7 +1428,7 @@
                     "width": 350,
                     "x": -176.62785172576832,
                     "y": 2241.634719777516,
-                    "z": 3.4099999999999713
+                    "z": 4.389999999999951
                 },
                 {
                     "agent": {
@@ -1435,60 +1453,32 @@
                     "z": 3.759999999999964
                 },
                 {
-                    "agent": {
-                        "instances": [
-                            {
-                                "commandLine": "C:\\Users\\cleme\\Downloads\\Ingescape\\igsProxy.exe --port 5670 --name Proxy --license C:/Users/cleme/Documents/Ingescape/licenses --ws ws://localhost:12345 --device \"Loopback Pseudo-Interface 1\"",
-                                "isAttachedToCircle": true,
-                                "uuid": "2a7fa185-8349-4261-8840-879f7a805091"
-                            }
-                        ]
-                    },
-                    "class": "48879EBE0FBC48D8B429F11510954D9B",
-                    "height": 100,
-                    "name": "Proxy",
-                    "simulationTime": 5000,
-                    "uuid": "1513efcd-ab4a-4620-ac90-6b304b2d9d27",
-                    "width": 250,
-                    "x": -968.4746617683021,
-                    "y": 1031.8757724842108,
-                    "z": 3.1099999999999777
-                },
-                {
                     "data": {
-                        "entries": [
-                            "1"
-                        ],
                         "value_type": "INTEGER"
                     },
                     "height": 88,
                     "isExpanded": true,
                     "name": "",
                     "tool": "com.ingescape.circle.tool.writer",
-                    "uuid": "2a042547-0fd9-4afa-81cb-1ebfaf11ab8f",
+                    "uuid": "680898c6-b755-4ce4-81c9-0787bbba63a0",
                     "width": 250,
-                    "x": -334.7004874991849,
-                    "y": 801.1845567641067,
-                    "z": 3.889999999999961
+                    "x": -91.27105691535075,
+                    "y": 888.0345333124477,
+                    "z": 4.099999999999957
                 },
                 {
                     "data": {
-                        "data_decoder": "BINARY",
-                        "mostRecentFirst": true,
-                        "msg_type": "",
-                        "proto_file_path": "",
-                        "showTimestamps": true,
-                        "string_decoder": "PLAIN_TEXT"
+                        "value_type": "INTEGER"
                     },
-                    "height": 75,
+                    "height": 88,
                     "isExpanded": true,
                     "name": "",
-                    "tool": "com.ingescape.circle.tool.observer",
-                    "uuid": "98cb26a5-809b-4b38-a468-89adf328473d",
+                    "tool": "com.ingescape.circle.tool.writer",
+                    "uuid": "bcd599b4-014d-4197-ba7a-63f85ac853b4",
                     "width": 250,
-                    "x": 1087.6775604419954,
-                    "y": 930.4592599365917,
-                    "z": 3.8799999999999613
+                    "x": -94.69478616975073,
+                    "y": 976.8418778500475,
+                    "z": 4.089999999999957
                 }
             ],
             "links": {
@@ -1570,6 +1560,12 @@
                         "fromInput": "difficulty_level",
                         "to": "Superviseur",
                         "toOutput": "difficulty_level"
+                    },
+                    {
+                        "from": "Whiteboard",
+                        "fromInput": "clear",
+                        "to": "Traitement_Input_Whiteboard",
+                        "toOutput": "refresh"
                     }
                 ],
                 "others": [
@@ -1747,21 +1743,21 @@
                             "name": "difficulty_level",
                             "type": "INPUT"
                         },
-                        "source": "2a042547-0fd9-4afa-81cb-1ebfaf11ab8f",
+                        "source": "680898c6-b755-4ce4-81c9-0787bbba63a0",
                         "sourceIO": {
                             "name": "value",
                             "type": "OUTPUT"
                         }
                     },
                     {
-                        "destination": "98cb26a5-809b-4b38-a468-89adf328473d",
+                        "destination": "72e317f6-1e5f-4b5b-900c-a10b09340e51",
                         "destinationIO": {
-                            "name": "wildcard",
+                            "name": "seed",
                             "type": "INPUT"
                         },
-                        "source": "f7c14cb5-aa14-4fd1-b306-086100abad34",
+                        "source": "bcd599b4-014d-4197-ba7a-63f85ac853b4",
                         "sourceIO": {
-                            "name": "element_array",
+                            "name": "value",
                             "type": "OUTPUT"
                         }
                     }
