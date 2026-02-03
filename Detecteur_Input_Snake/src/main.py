@@ -169,16 +169,7 @@ if __name__ == "__main__":
     # catch SIGINT handler after starting agent
     signal.signal(signal.SIGINT, signal_handler)
 
-    if interactive_loop:
-        print_usage_help()
-        while True:
-            command = input()
-            if command == "/quit":
-                break
-            elif command == "/help":
-                print_usage_help()
-    else:
-        while (not is_interrupted) and igs.is_started():
-            time.sleep(0.1)
+    while True :
+        agent._DirectionO = agent.dir()
 
     igs.stop()

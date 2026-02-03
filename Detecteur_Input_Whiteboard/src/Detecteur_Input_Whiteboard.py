@@ -9,6 +9,7 @@
 #  Copyright © 2025 Ingenuity i/o. All rights reserved.
 #
 import ingescape as igs
+from pynput import keyboard
 
 
 class Singleton(type):
@@ -35,5 +36,24 @@ class Detecteur_Input_Whiteboard(metaclass=Singleton):
         self._Button_PressedO = value
         if self._Button_PressedO is not None:
             igs.output_set_int("button_pressed", self._Button_PressedO)
+    
+    def inpWithe(self):
+        result = {'value': None}
+        def on_press(key):
+            if key==keyboard.Key.enter:
+                result['value'] = 0
+                return False
+            if key==keyboard.Key.up:
+                result['value'] = 1
+                return False
+            if key==keyboard.Key.down:
+                result['value'] = 2
+                return False
+
+        # Collecter les événements jusqu'à la libération
+        with keyboard.Listener(
+                on_press=on_press) as listener:
+            listener.join()
+        return result['value']
 
 

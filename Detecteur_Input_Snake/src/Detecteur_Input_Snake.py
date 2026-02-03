@@ -9,7 +9,7 @@
 #  Copyright © 2025 Ingenuity i/o. All rights reserved.
 #
 import ingescape as igs
-
+from pynput import keyboard
 
 class Singleton(type):
     _instances = {}
@@ -35,5 +35,27 @@ class Detecteur_Input_Snake(metaclass=Singleton):
         self._DirectionO = value
         if self._DirectionO is not None:
             igs.output_set_int("direction", self._DirectionO)
+    
+    def dir(self):
+        result = {'value': None}
+        def on_press(key):
+            if key==keyboard.Key.down:
+                result['value'] = 3
+                return False
+            if key==keyboard.Key.up:
+                result['value'] = 1
+                return False
+            if key==keyboard.Key.left:
+                result['value'] = 4
+                return False
+            if key==keyboard.Key.right:
+                result['value'] = 2
+                return False
+
+        # Collecter les événements jusqu'à la libération
+        with keyboard.Listener(
+                on_press=on_press) as listener:
+            listener.join()
+        return result['value']
 
 
