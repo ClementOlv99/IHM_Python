@@ -104,7 +104,7 @@ def Game_Over_input_callback(io_type, name, value_type, value, my_data):
     try:
         agent_object = my_data
         assert isinstance(agent_object, Traitement_Input_Whiteboard)
-        # add code here if needed
+        agent.ingame = False
     except:
         print(traceback.format_exc())
 
@@ -113,7 +113,24 @@ def Button_Pressed_input_callback(io_type, name, value_type, value, my_data):
         agent_object = my_data
         assert isinstance(agent_object, Traitement_Input_Whiteboard)
         agent_object.Button_PressedI = value
-        # add code here if needed
+        refresh = agent.whiteboard(value)
+        match refresh:
+            case 0:
+                igs.service_call("Whiteboard", "clear", None, None)
+                igs.service_call("Whiteboard", "hideLabels", None, None)
+            case 1:
+                igs.service_call("Whiteboard", "clear", None, None)
+                igs.service_call("Whiteboard", "hideLabels", None, None)
+                igs.service_call("Whiteboard", "setBackgroundColor", "white", None)
+                igs.service_call("Whiteboard","getWhiteboardSize",None,None)
+                agent.XO = agent.width/2
+                agent.YO = agent.height/2
+                agent.WidthO = agent.width/4
+                agent.HeightO = agent.height/4
+                agent.Stroke_WitdthO = 2
+                agent.ColorO = "red"
+                agent.Color_StrokeO = "black"
+                agent.set_Add_ShapeO()
     except:
         print(traceback.format_exc())
 
