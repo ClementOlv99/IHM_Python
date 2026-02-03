@@ -20,7 +20,7 @@ from Traitement_Input_Whiteboard import *
 
 port = 5670
 agent_name = "Traitement_Input_Whiteboard"
-device = "Loopback Pseudo-Interface 1"
+device = None
 verbose = False
 is_interrupted = False
 
@@ -104,25 +104,16 @@ def Game_Over_input_callback(io_type, name, value_type, value, my_data):
     try:
         agent_object = my_data
         assert isinstance(agent_object, Traitement_Input_Whiteboard)
-        agent.ingame = False
+        # add code here if needed
     except:
         print(traceback.format_exc())
-    
+
 def Button_Pressed_input_callback(io_type, name, value_type, value, my_data):
     try:
         agent_object = my_data
         assert isinstance(agent_object, Traitement_Input_Whiteboard)
         agent_object.Button_PressedI = value
-        refresh = agent.whiteboard(value)
-        match refresh:
-            case 0:
-                igs.service_call("Whiteboard", "clear", None, None)
-                igs.service_call("Whiteboard", "hideLabels", None, None)
-            case 1:
-                igs.service_call("Whiteboard", "clear", None, None)
-                igs.service_call("Whiteboard", "hideLabels", None, None)
-                igs.service_call("Whiteboard", "setBackgroundColor", "white", None)
-                igs.service_call("Whiteboard", "addshape", "square", agent.width/2,agent.height/2,agent.width/4 ,agent.height/4,"red","black",2.0)
+        # add code here if needed
     except:
         print(traceback.format_exc())
 
@@ -131,7 +122,7 @@ def Width_input_callback(io_type, name, value_type, value, my_data):
         agent_object = my_data
         assert isinstance(agent_object, Traitement_Input_Whiteboard)
         agent_object.WidthI = value
-        agent.width = value
+        # add code here if needed
     except:
         print(traceback.format_exc())
 
@@ -140,7 +131,7 @@ def Height_input_callback(io_type, name, value_type, value, my_data):
         agent_object = my_data
         assert isinstance(agent_object, Traitement_Input_Whiteboard)
         agent_object.HeightI = value
-        agent.height = value
+        # add code here if needed
     except:
         print(traceback.format_exc())
 
@@ -219,6 +210,16 @@ if __name__ == "__main__":
     igs.observe_input("height", Height_input_callback, agent)
 
     igs.output_create("config", igs.INTEGER_T, None)
+    igs.output_create("add_shape", igs.IMPULSION_T, None)
+    igs.output_create("x", igs.DOUBLE_T, None)
+    igs.output_create("y", igs.DOUBLE_T, None)
+    igs.output_create("width", igs.DOUBLE_T, None)
+    igs.output_create("height", igs.DOUBLE_T, None)
+    igs.output_create("stroke_witdth", igs.DOUBLE_T, None)
+    igs.output_create("color", igs.STRING_T, None)
+    igs.output_create("color_stroke", igs.STRING_T, None)
+    igs.output_create("add_text", igs.IMPULSION_T, None)
+    igs.output_create("content", igs.STRING_T, None)
 
     igs.start_with_device(device, port)
     # catch SIGINT handler after starting agent
