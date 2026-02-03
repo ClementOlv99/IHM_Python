@@ -9,7 +9,11 @@
 #  Copyright © 2025 Ingenuity i/o. All rights reserved.
 #
 import ingescape as igs
+import os, random
+import numpy as np
+import json
 
+DirFrag = "../Fragments/"
 
 class Singleton(type):
     _instances = {}
@@ -38,7 +42,7 @@ class Generateur_Aleatoire(metaclass=Singleton):
         if self._LayoutO is not None:
             igs.output_set_data("layout", value)
 
-    def center(dep, fin):
+    def center(self, dep, fin):
         fragCen = random.choice(os.listdir(DirFrag+"Center"))
         input = np.loadtxt(DirFrag+"Center/"+fragCen, dtype='i', delimiter=' ')
         nbRot = random.choice([0, 1, 2, 3])
@@ -51,7 +55,7 @@ class Generateur_Aleatoire(metaclass=Singleton):
         return center
 
     #num indicate wich border we want : 0 = North, 1 = West, 2 = South, 3 = East.
-    def border(num, dep, fin):
+    def border(self, num, dep, fin):
         fragBor = random.choice(os.listdir(DirFrag+"Border"))
         border = np.loadtxt(DirFrag+"Border/"+fragBor, dtype='i', delimiter=' ')
         if random.randrange(2) == 1 :
@@ -65,17 +69,14 @@ class Generateur_Aleatoire(metaclass=Singleton):
         return border
 
     #num indicate wich border we want : 0 = NorthWest, 1 = SouthWest, 2 = SouthEast, 3 = NorthEast.
-    def corner(num, dep, fin):
+    def corner(self, num, dep, fin):
         fragCor = random.choice(os.listdir(DirFrag+"Corner"))
         corner = np.loadtxt(DirFrag+"Corner/"+fragCor, dtype='i', delimiter=' ')
         if random.randrange(2) == 1:
             corner = np.transpose(corner)
         corner = np.rot90(corner, num)
-        print(str(dep) + " " + str(fin))
         if not dep :
-            print("ayayo!")
             corner = np.where(corner==2, 0, corner)
         if not fin :
-            print("ayaya!")
             corner = np.where(corner==3, 0, corner)
         return corner

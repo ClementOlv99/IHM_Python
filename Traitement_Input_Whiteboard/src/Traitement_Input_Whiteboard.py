@@ -4,7 +4,7 @@
 #
 #  Traitement_Input_Whiteboard
 #
-#  Created by Ingenuity i/o on 2026/01/30
+#  Created by Ingenuity i/o on 2026/02/03
 #
 #  Copyright © 2025 Ingenuity i/o. All rights reserved.
 #
@@ -40,7 +40,7 @@ class Traitement_Input_Whiteboard(metaclass=Singleton):
     def ConfigO(self, value):
         self._ConfigO = value
         if self._ConfigO is not None:
-            igs.output_set_data("config", value)
+            igs.output_set_int("config", self._ConfigO)
     def set_RefreshO(self):
         igs.output_set_impulsion("refresh")
 

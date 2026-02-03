@@ -17,7 +17,7 @@ import traceback
 import sys
 import os, random
 import numpy as np
-DirFrag = "../Fragments/"
+
 
 from Generateur_Aleatoire import *
 
@@ -117,8 +117,8 @@ def Seed_input_callback(io_type, name, value_type, value, my_data):
         SouthThird = np.hstack((agent_object.corner(1, depart == 6, finish == 6), agent_object.border(2, depart == 7, finish == 7), agent_object.corner(2, depart == 8, finish == 8)))
         Layout = np.vstack((NorthThird, CenterThird, SouthThird))
         print("Layout Called")
-        SerialLayout = json.dumps(layout.tolist())
-        agent_object.LayoutO(SerialLayout)
+        SerialLayout = json.dumps(Layout.tolist())
+        agent_object.LayoutO = bytes(SerialLayout, 'utf-8')
     except:
         print(traceback.format_exc())
 

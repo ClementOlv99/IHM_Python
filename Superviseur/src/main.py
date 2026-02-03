@@ -4,7 +4,7 @@
 #
 #  Superviseur
 #
-#  Created by Ingenuity i/o on 2026/02/02
+#  Created by Ingenuity i/o on 2026/02/03
 #
 #  Copyright © 2025 Ingenuity i/o. All rights reserved.
 #
@@ -184,7 +184,7 @@ if __name__ == "__main__":
 
     igs.input_create("new_level", igs.IMPULSION_T, None)
     igs.observe_input("new_level", New_Level_input_callback, agent)
-    igs.input_create("config", igs.DATA_T, None)
+    igs.input_create("config", igs.INTEGER_T, None)
     igs.observe_input("config", Config_input_callback, agent)
 
     igs.output_create("difficulty_level", igs.INTEGER_T, None)

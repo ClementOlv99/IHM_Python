@@ -4,7 +4,7 @@
 #
 #  Traitement_Input_Whiteboard
 #
-#  Created by Ingenuity i/o on 2026/01/30
+#  Created by Ingenuity i/o on 2026/02/03
 #
 #  Copyright © 2025 Ingenuity i/o. All rights reserved.
 #
@@ -20,7 +20,7 @@ from Traitement_Input_Whiteboard import *
 
 port = 5670
 agent_name = "Traitement_Input_Whiteboard"
-device = "Loopback Pseudo-Interface 1"
+device = None
 verbose = False
 is_interrupted = False
 
@@ -188,7 +188,7 @@ if __name__ == "__main__":
     igs.observe_input("button_pressed", Button_Pressed_input_callback, agent)
 
     igs.output_create("start", igs.IMPULSION_T, None)
-    igs.output_create("config", igs.DATA_T, None)
+    igs.output_create("config", igs.INTEGER_T, None)
     igs.output_create("refresh", igs.IMPULSION_T, None)
     igs.output_create("instruction", igs.STRING_T, None)
 
