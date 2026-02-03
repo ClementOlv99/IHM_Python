@@ -26,7 +26,6 @@ class Traitement_Input_Whiteboard(metaclass=Singleton):
 
         # outputs
         self._ConfigO = None
-        self._InstructionO = None
 
     # outputs
     @property
@@ -38,17 +37,5 @@ class Traitement_Input_Whiteboard(metaclass=Singleton):
         self._ConfigO = value
         if self._ConfigO is not None:
             igs.output_set_int("config", self._ConfigO)
-    def set_RefreshO(self):
-        igs.output_set_impulsion("refresh")
-
-    @property
-    def InstructionO(self):
-        return self._InstructionO
-
-    @InstructionO.setter
-    def InstructionO(self, value):
-        self._InstructionO = value
-        if self._InstructionO is not None:
-            igs.output_set_string("instruction", self._InstructionO)
 
 
