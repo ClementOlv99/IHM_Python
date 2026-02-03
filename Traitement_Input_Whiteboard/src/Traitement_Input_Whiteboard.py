@@ -162,7 +162,7 @@ class Traitement_Input_Whiteboard(metaclass=Singleton):
         self.Stroke_WitdthO = 1
         self.ColorO = "lightgreen"
         self.Color_StrokeO = "green"
-        self.ContentO = "square"
+        self.ContentO = "rectangle"
         self.set_Add_ShapeO()
 
     def dmenu1(self,x,y,w,h):
@@ -173,7 +173,7 @@ class Traitement_Input_Whiteboard(metaclass=Singleton):
         self.Stroke_WitdthO = 1
         self.ColorO = "green"
         self.Color_StrokeO = "darkgreen"
-        self.ContentO = "square"
+        self.ContentO = "rectangle"
         self.set_Add_ShapeO()
     
     def menu2(self,texte,x,y):
