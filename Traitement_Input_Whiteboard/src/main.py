@@ -20,7 +20,7 @@ from Traitement_Input_Whiteboard import *
 
 port = 5670
 agent_name = "Traitement_Input_Whiteboard"
-device = "Loopback Pseudo-Interface 1"
+device = None
 verbose = False
 is_interrupted = False
 
@@ -93,6 +93,7 @@ def on_agent_event_callback(event, uuid, name, event_data, my_data):
     try:
         agent_object = my_data
         assert isinstance(agent_object, Traitement_Input_Whiteboard)
+        # add code here if needed
     except:
         print(traceback.format_exc())
 
@@ -103,7 +104,7 @@ def Game_Over_input_callback(io_type, name, value_type, value, my_data):
     try:
         agent_object = my_data
         assert isinstance(agent_object, Traitement_Input_Whiteboard)
-        agent.ingame = False
+        # add code here if needed
     except:
         print(traceback.format_exc())
 
@@ -112,19 +113,25 @@ def Button_Pressed_input_callback(io_type, name, value_type, value, my_data):
         agent_object = my_data
         assert isinstance(agent_object, Traitement_Input_Whiteboard)
         agent_object.Button_PressedI = value
-        refresh = agent.whiteboard(value)
-        match refresh:
-            case 0:
-                igs.service_call("Whiteboard", "clear", None, None)
-                igs.service_call("Whiteboard", "hideLabels", None, None)
-            case 1:
-                igs.service_call("Whiteboard", "clear", None, None)
-                igs.service_call("Whiteboard", "hideLabels", None, None)
-                igs.service_call("Whiteboard", "setBackgroundColor", "white", None)
-                x,y = igs.service_call("Whiteboard","getWhiteboardSize",None,None)
-                igs.service_call("Whiteboard", "addshape", "square", x/2,y/2,x/4 ,y/4)
+        # add code here if needed
+    except:
+        print(traceback.format_exc())
 
+def Width_input_callback(io_type, name, value_type, value, my_data):
+    try:
+        agent_object = my_data
+        assert isinstance(agent_object, Traitement_Input_Whiteboard)
+        agent_object.WidthI = value
+        # add code here if needed
+    except:
+        print(traceback.format_exc())
 
+def Height_input_callback(io_type, name, value_type, value, my_data):
+    try:
+        agent_object = my_data
+        assert isinstance(agent_object, Traitement_Input_Whiteboard)
+        agent_object.HeightI = value
+        # add code here if needed
     except:
         print(traceback.format_exc())
 
@@ -197,6 +204,10 @@ if __name__ == "__main__":
     igs.observe_input("game_over", Game_Over_input_callback, agent)
     igs.input_create("button_pressed", igs.INTEGER_T, None)
     igs.observe_input("button_pressed", Button_Pressed_input_callback, agent)
+    igs.input_create("width", igs.INTEGER_T, None)
+    igs.observe_input("width", Width_input_callback, agent)
+    igs.input_create("height", igs.INTEGER_T, None)
+    igs.observe_input("height", Height_input_callback, agent)
 
     igs.output_create("config", igs.INTEGER_T, None)
 

@@ -23,12 +23,11 @@ class Traitement_Input_Whiteboard(metaclass=Singleton):
     def __init__(self):
         # inputs
         self.Button_PressedI = None
+        self.WidthI = None
+        self.HeightI = None
 
         # outputs
         self._ConfigO = None
-
-        self.ingame = False
-        self.difficulty = 1
 
     # outputs
     @property
@@ -42,24 +41,3 @@ class Traitement_Input_Whiteboard(metaclass=Singleton):
             igs.output_set_int("config", self._ConfigO)
 
 
-    def whiteboard(self,button):
-        if self.ingame == False:
-            match button:
-                case 0:
-                    self.ConfigO = self.difficulty
-                    self.ingame = True
-                    return 0
-                case 1:
-                    match self.difficulty:
-                        case 1:
-                            return 2
-                        case _:
-                            self.difficulty = self.difficulty -1
-                            return 1
-                case 2:
-                    match self.difficulty:
-                        case 4:
-                            return 2
-                        case _:
-                            self.difficulty = self.difficulty +1
-                            return 1
