@@ -120,8 +120,9 @@ def Button_Pressed_input_callback(io_type, name, value_type, value, my_data):
             case 1:
                 igs.service_call("Whiteboard", "clear", None, None)
                 igs.service_call("Whiteboard", "hideLabels", None, None)
-                igs.service_call("Whiteboard", "setBackgroundColor", "red", None)
-                #x,y = igs.service_call("Whiteboard","getWhiteboardSize",None,None)
+                igs.service_call("Whiteboard", "setBackgroundColor", "white", None)
+                x,y = igs.service_call("Whiteboard","getWhiteboardSize",None,None)
+                igs.service_call("Whiteboard", "addshape", "square", x/2,y/2,x/4 ,y/4)
 
 
     except:
