@@ -38,6 +38,7 @@ class Traitement_Input_Whiteboard(metaclass=Singleton):
         self._ContentO = None
 
         self.ingame=False
+        self.difficulty = 1
         self.width = None
         self.height = None
 
