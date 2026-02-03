@@ -132,11 +132,11 @@ def Button_Pressed_input_callback(io_type, name, value_type, value, my_data):
                 agent.Color_StrokeO = "black"
                 agent.ContentO = "square"
                 agent.set_Add_ShapeO()
-                agent.XO = agent.width/2
-                agent.YO = agent.height/2
-                agent.ColorO = "red"
-                agent.ContentO = "suuuuu"
-                agent.set_Add_TextO()
+                #agent.XO = agent.width/2
+                #agent.YO = agent.height/2
+                #agent.ColorO = "red"
+                #agent.ContentO = "suuuuu"
+                #agent.set_Add_TextO()
     except:
         print(traceback.format_exc())
 
