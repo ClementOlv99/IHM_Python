@@ -107,6 +107,7 @@ def Game_Over_input_callback(io_type, name, value_type, value, my_data):
         agent_object = my_data
         assert isinstance(agent_object, Traitement_Input_Whiteboard)
         agent.ingame = False
+        agent.lancer()
     except:
         print(traceback.format_exc())
 
