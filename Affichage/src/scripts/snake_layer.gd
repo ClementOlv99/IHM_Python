@@ -5,6 +5,7 @@ var cycle_duration : float = 1.0
 
 @onready var camera : Camera2D = $Camera2D
 @onready var line2D : Line2D = $Line2D
+@onready var light : PointLight2D = $PointLight2D
 
 ## Snake positions in grid space (head at index 0, tail at end)
 var snake_array : Array[Vector2i] = []:
@@ -59,14 +60,14 @@ func update_snake_visuals() -> void:
 		return
 	
 	# Calculate interpolated positions
-	var interpolated_positions : Array[Vector2] = []
+	var interpolated_positions : Array = []
 	
 	for i in range(snake_array.size()):
 		var current_grid_pos : Vector2i = snake_array[i]
 		var current_world_pos : Vector2 = Vector2(current_grid_pos * 64 + Vector2i(32, 32))
 		
 		# If we have previous positions and are interpolating, blend between old and new
-		if is_interpolating and i < previous_snake_array.size() and previous_snake_array.size() > 0:
+		if is_interpolating and len(previous_snake_array) > 0 and (i == len(previous_snake_array)-1 or i == 0):
 			var previous_grid_pos : Vector2i = previous_snake_array[i]
 			var previous_world_pos : Vector2 = Vector2(previous_grid_pos * 64 + Vector2i(32, 32))
 			
@@ -77,7 +78,11 @@ func update_snake_visuals() -> void:
 		else:
 			# No interpolation, use current position
 			interpolated_positions.append(current_world_pos)
-	
+		
+	interpolated_positions = snake_array.map(
+		func (i:Vector2) :
+			return i * 64 + Vector2(32,32)
+	) as Array[Vector2]
 	# Update Line2D with interpolated points
 	line2D.clear_points()
 	for pos in interpolated_positions:
@@ -86,3 +91,4 @@ func update_snake_visuals() -> void:
 	# Update camera to follow interpolated head position
 	if interpolated_positions.size() > 0:
 		camera.global_position = interpolated_positions[0]
+		light.global_position = interpolated_positions[0]

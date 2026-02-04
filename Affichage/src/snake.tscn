@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cset8p2j400bw"]
+[gd_scene load_steps=6 format=3 uid="uid://cset8p2j400bw"]
 
 [ext_resource type="Script" uid="uid://d4k2f6wcb5fnv" path="res://scripts/snake_layer.gd" id="1_baghe"]
 [ext_resource type="Texture2D" uid="uid://cn0tps3vxeve" path="res://assets/snake_head.png" id="2_gxkgb"]
+[ext_resource type="Texture2D" uid="uid://dy7svklyu2sq0" path="res://assets/light.jpg" id="3_2x2sd"]
 
 [sub_resource type="Curve" id="Curve_baghe"]
 _data = [Vector2(0, 1), 0.0, -0.12041193, 0, 0, Vector2(1, 0.53177977), -0.90292996, 0.0, 0, 0]
@@ -16,6 +17,7 @@ colors = PackedColorArray(0.31184998, 0.77, 0.11549998, 1, 0, 0.4634971, 0.39603
 script = ExtResource("1_baghe")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 324)
 position_smoothing_enabled = true
 position_smoothing_speed = 1.0
 
@@ -32,3 +34,11 @@ begin_cap_mode = 2
 end_cap_mode = 2
 round_precision = 24
 antialiased = true
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(140, 184)
+range_z_min = -2048
+range_z_max = 2048
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 1)
+texture = ExtResource("3_2x2sd")

@@ -82,7 +82,7 @@ class Moteur_Jeu(metaclass=Singleton):
         # Level data
         self.layout = []               # Immutable base layout
         self.current_layout = []       # Working copy (items removed when eaten)
-        self.cycle_duration = 1.0      # Seconds per game tick
+        self.cycle_duration = 0.3      # Seconds per game tick
         self.last_cycle_time = 0.0
         
         # Special positions
@@ -127,11 +127,6 @@ class Moteur_Jeu(metaclass=Singleton):
             
             # Extract layout array from level data (level data IS layout array)
             self.layout = level_data
-            
-            # Extract cycle duration if provided
-            if "cycle_duration" in level_data:
-                self.cycle_duration = level_data["cycle_duration"]
-                print(f"⏱️  Cycle duration set to {self.cycle_duration}s")
 
             # Create working copy (will be modified as items are eaten)
             self.current_layout = [row[:] for row in self.layout]
@@ -159,43 +154,34 @@ class Moteur_Jeu(metaclass=Singleton):
             if self.entry_position:
                 x, y = self.entry_position
                 
-                # Determine safe direction to place snake tail based on available space
-                # Try: right, left, down, up
-                tail_offsets = [
-                    [(0, 0), (-1, 0), (-2, 0)],  # Head, tail going left
-                    [(0, 0), (1, 0), (2, 0)],    # Head, tail going right
-                    [(0, 0), (0, -1), (0, -2)],  # Head, tail going up
-                    [(0, 0), (0, 1), (0, 2)],    # Head, tail going down
+                # Snake always starts at entry position, facing RIGHT
+                # Body extends to the left from the entry point
+                # Try to place 3-segment snake: [entry, left1, left2]
+                tail_positions = [
+                    (x, y),      # Head at entry
+                    (x - 1, y),  # Body segment 1 (left of head)
+                    (x - 2, y)   # Body segment 2 (left of segment 1)
                 ]
                 
-                initial_directions = [self.DIR_RIGHT, self.DIR_LEFT, self.DIR_DOWN, self.DIR_UP]
-                
-                snake_placed = False
-                for tail_pattern, direction in zip(tail_offsets, initial_directions):
-                    # Check if all positions are valid
-                    positions = [(x + dx, y + dy) for dx, dy in tail_pattern]
-                    valid = True
-                    
-                    for px, py in positions:
-                        if px < 0 or px >= width or py < 0 or py >= height:
-                            valid = False
-                            break
-                        tile = self.layout[py][px]
-                        if tile == self.TILE_WALL:
-                            valid = False
-                            break
-                    
-                    if valid:
-                        self.snake_body = positions
-                        self.current_direction = direction
-                        snake_placed = True
-                        print(f"🐍 Snake placed: {self.snake_body}, facing direction {direction}")
+                # Validate all positions are safe (not walls, in bounds)
+                valid_positions = []
+                for px, py in tail_positions:
+                    if px < 0 or px >= width or py < 0 or py >= height:
                         break
+                    tile = self.layout[py][px]
+                    if tile == self.TILE_WALL:
+                        break
+                    valid_positions.append((px, py))
                 
-                if not snake_placed:
-                    print("❌ Cannot place snake - no valid space near entry!")
-                    self.snake_body = [(x, y)]  # At least place head
-                    self.current_direction = self.DIR_RIGHT
+                # Use validated positions (at minimum, just the head)
+                if len(valid_positions) == 0:
+                    # Emergency fallback: just place head
+                    self.snake_body = [(x, y)]
+                else:
+                    self.snake_body = valid_positions
+                
+                # Always face RIGHT from entry
+                self.current_direction = self.DIR_RIGHT
                 
                 self.snake_length = len(self.snake_body)
                 self.pending_direction = None

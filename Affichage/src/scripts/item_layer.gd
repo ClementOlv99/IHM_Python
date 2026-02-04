@@ -1,6 +1,9 @@
 extends TileMapLayer
 class_name ItemLayer
 
+func _ready() -> void:
+	change_layout([[1,1,1,1,1],[1,4,0,5,1],[1,0,0,0,1],[1,0,0,0,1],[1,1,1,1,1]])
+
 func change_layout(new_layout:Array) -> void:
 	print("ItemLayer: Processing layout...")
 	var item_count = 0
