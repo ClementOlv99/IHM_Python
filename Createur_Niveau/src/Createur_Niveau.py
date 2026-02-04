@@ -75,15 +75,16 @@ class Createur_Niveau(metaclass=Singleton):
         level = np.array(self.layout)
         apple = self.elements[0]
         trap = self.elements[1]
-        possibles_indices = np.where(level == 0)
-        cases = random.sample(range(len(possibles_indices[0])), apple + trap)
+        possibles_indices = np.asarray(level == 0).nonzero()
         x = possibles_indices[0]
         y = possibles_indices[1]
+        cases = random.sample(range(len(possibles_indices[0])), apple + trap)
         random.shuffle(cases)
         for i in range(apple):
-            level[y[cases[i]]][x[cases[i]]] = 4
+            level[x[cases[i]]][y[cases[i]]] = 4
         for i in range(trap):
-            level[y[cases[apple + i]]][x[cases[apple + i]]] = 5
+            level[x[cases[apple + i]]][y[cases[apple + i]]] = 5
+        print(level)
         self.LevelO = json.dumps(level.tolist()).encode()
 
 

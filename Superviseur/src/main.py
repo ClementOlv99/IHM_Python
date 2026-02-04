@@ -105,10 +105,10 @@ def New_Level_input_callback(io_type, name, value_type, value, my_data):
         agent_object = my_data
         assert isinstance(agent_object, Superviseur)
         if agent.ready:
-            agent.Difficulty_LevelO = agent.level
             lvtype,lvconfig = agent.superviseur()
-            agent.Level_ConfigO = lvconfig
             agent.Level_TypeO = lvtype
+            agent.Difficulty_LevelO = agent.level
+            agent.Level_ConfigO = lvconfig
     except:
         print(traceback.format_exc())
 

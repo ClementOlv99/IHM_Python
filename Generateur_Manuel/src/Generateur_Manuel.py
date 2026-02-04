@@ -55,7 +55,8 @@ class Generateur_Manuel(metaclass=Singleton):
                 choice="Cave.txt"
             case 3:
                 choice="Maze.txt"
-        print(choice)
+            case _:
+                choice="Maze.txt"
         layout = np.loadtxt(DirLayout+choice, dtype='i', delimiter=' ')
         return layout
 

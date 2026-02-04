@@ -875,9 +875,9 @@
                     "simulationTime": 5000,
                     "uuid": "4942abba-6de4-4cfa-b698-1685f7271dbc",
                     "width": 250,
-                    "x": 1041.4569893524592,
-                    "y": 1073.2135724107247,
-                    "z": 6.979999999999896
+                    "x": 1039.935049458995,
+                    "y": 1074.7355123041891,
+                    "z": 7.71999999999988
                 },
                 {
                     "agent": {
@@ -906,7 +906,7 @@
                     "width": 250,
                     "x": 519.7875543423554,
                     "y": 1054.3414515216552,
-                    "z": 6.819999999999899
+                    "z": 7.69999999999988
                 },
                 {
                     "agent": {
@@ -935,7 +935,7 @@
                     "width": 250,
                     "x": 519.5223355508858,
                     "y": 946.4008458858739,
-                    "z": 5.5299999999999265
+                    "z": 7.70999999999988
                 },
                 {
                     "agent": {
@@ -963,11 +963,11 @@
                     "agent": {
                         "instances": [
                             {
-                                "commandLine": "/usr/bin/python3 Moteur_Jeu/src/main.py --device wlan0",
-                                "hostname": "jackwire",
-                                "ip": "172.22.224.187",
+                                "commandLine": "C:\\Users\\cleme\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe main.py",
+                                "hostname": "DESKTOP-6RUV5UB",
+                                "ip": "127.0.0.1",
                                 "isAttachedToCircle": false,
-                                "uuid": "481bfdea-6e8c-40e8-b296-70856697ca52"
+                                "uuid": "99cd0302-eba3-4aed-848b-49b7425af3a5"
                             }
                         ]
                     },
@@ -977,9 +977,9 @@
                     "simulationTime": 5000,
                     "uuid": "d26ecb14-118b-42c0-9584-0223eed405a2",
                     "width": 250,
-                    "x": 1449.9597342418301,
-                    "y": 1028.473007084165,
-                    "z": 6.699999999999902
+                    "x": 1466.072887737105,
+                    "y": 1030.772693270749,
+                    "z": 7.179999999999891
                 },
                 {
                     "agent": {
@@ -1043,9 +1043,9 @@
                     "simulationTime": 5000,
                     "uuid": "170a723c-b3da-4b99-b867-3374d97a6ecd",
                     "width": 250,
-                    "x": -310.8178575102063,
-                    "y": 1448.1608928798219,
-                    "z": 6.539999999999905
+                    "x": -279.25891187932916,
+                    "y": 1450.790805015728,
+                    "z": 6.999999999999895
                 },
                 {
                     "agent": {
@@ -1096,13 +1096,6 @@
                                 "ip": "127.0.0.1",
                                 "isAttachedToCircle": false,
                                 "uuid": "97f6dff7-7bc9-48ba-abe3-120987f36398"
-                            },
-                            {
-                                "commandLine": "/usr/bin/python3 Detecteur_Input_Snake/src/main.py --device wlan0",
-                                "hostname": "jackwire",
-                                "ip": "172.22.224.187",
-                                "isAttachedToCircle": false,
-                                "uuid": "4122e128-982c-4749-9c95-e2655b2495b1"
                             }
                         ]
                     },
@@ -1114,7 +1107,7 @@
                     "width": 250,
                     "x": 1032.681645238958,
                     "y": 668.81698230612,
-                    "z": 4.1699999999999555
+                    "z": 6.689999999999902
                 },
                 {
                     "agent": {
@@ -1125,6 +1118,13 @@
                                 "ip": "127.0.0.1",
                                 "isAttachedToCircle": false,
                                 "uuid": "4ea65a9c-1af0-4be5-b637-05ed5cf2fef8"
+                            },
+                            {
+                                "commandLine": "C:\\Users\\cleme\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe main.py",
+                                "hostname": "DESKTOP-6RUV5UB",
+                                "ip": "127.0.0.1",
+                                "isAttachedToCircle": false,
+                                "uuid": "c391a918-a745-441e-a8dc-84db6a5d2ff0"
                             }
                         ]
                     },
@@ -1134,9 +1134,9 @@
                     "simulationTime": 5000,
                     "uuid": "67acf094-d3e3-4802-bac3-e3f04896ec20",
                     "width": 250,
-                    "x": 1951.520745377648,
-                    "y": 1009.3944446683131,
-                    "z": 3.759999999999964
+                    "x": 1760.9412527402865,
+                    "y": 1028.3725762662643,
+                    "z": 6.989999999999895
                 },
                 {
                     "agent": {
@@ -1238,9 +1238,106 @@
                     "tool": "com.ingescape.circle.tool.servicecaller",
                     "uuid": "6b0d5ddf-ab52-403e-8b13-e4c185d2251b",
                     "width": 350,
-                    "x": -241.82278840662832,
-                    "y": 1823.36781505402,
-                    "z": 5.3899999999999295
+                    "x": 492.30713210537067,
+                    "y": 1822.480977806019,
+                    "z": 5.9999999999999165
+                },
+                {
+                    "data": {
+                        "argumentValues": [
+                            {
+                                "name": "url",
+                                "value": "data:image/jpeg;base64,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"
+                            },
+                            {
+                                "name": "x",
+                                "value": "250"
+                            },
+                            {
+                                "name": "y",
+                                "value": "100"
+                            }
+                        ],
+                        "selectedAgentUuid": "4111d848-7f7c-47d8-a4b9-5ea212fbb4dd",
+                        "selectedService": "addImageFromUrl"
+                    },
+                    "height": 180,
+                    "isExpanded": true,
+                    "name": "",
+                    "tool": "com.ingescape.circle.tool.servicecaller",
+                    "uuid": "ef49895a-9c80-4121-914a-2626ad70879f",
+                    "width": 350,
+                    "x": 1369.2525094780694,
+                    "y": 1920.196621116397,
+                    "z": 6.379999999999908
+                },
+                {
+                    "data": {
+                        "duration": 5000,
+                        "repeat": -1
+                    },
+                    "height": 125,
+                    "isExpanded": true,
+                    "name": "",
+                    "tool": "com.ingescape.circle.tool.timer",
+                    "uuid": "4f70bf9a-c778-4c63-98a9-2469bdcf8a90",
+                    "width": 250,
+                    "x": 1274.8547916032812,
+                    "y": 1323.7960078791975,
+                    "z": 6.599999999999904
+                },
+                {
+                    "data": {
+                        "entries": [
+                            "5"
+                        ],
+                        "value_type": "DOUBLE"
+                    },
+                    "height": 88,
+                    "isExpanded": true,
+                    "name": "",
+                    "tool": "com.ingescape.circle.tool.writer",
+                    "uuid": "2f2359c0-cf0e-4d3e-b50a-fce16a5eaac8",
+                    "width": 250,
+                    "x": 870.540079898059,
+                    "y": 1769.7564270804874,
+                    "z": 6.629999999999903
+                },
+                {
+                    "data": {
+                        "value_type": "IMPULSION"
+                    },
+                    "height": 60,
+                    "isExpanded": true,
+                    "name": "",
+                    "tool": "com.ingescape.circle.tool.writer",
+                    "uuid": "ec002350-7a20-4c84-ac41-8f052c101a01",
+                    "width": 250,
+                    "x": 854.5627255923616,
+                    "y": 1686.2638272533654,
+                    "z": 6.619999999999903
+                },
+                {
+                    "data": {
+                        "command": "value={0}",
+                        "duration": 90000,
+                        "easing": 23,
+                        "easingFirstControlPoint": "0.25;0.25",
+                        "easingSecondControlPoint": "0.75;0.75",
+                        "name": "Motion",
+                        "ranges": [
+                            "0;0;50000"
+                        ]
+                    },
+                    "height": 170,
+                    "isExpanded": true,
+                    "name": "",
+                    "tool": "com.ingescape.circle.tool.motion",
+                    "uuid": "dd7207ea-8d8a-4a63-aace-d0f26bc373f7",
+                    "width": 250,
+                    "x": 874.62700060121,
+                    "y": 1432.2555842011648,
+                    "z": 6.6099999999999035
                 }
             ],
             "links": {
@@ -1622,66 +1719,6 @@
                         "source": "170a723c-b3da-4b99-b867-3374d97a6ecd",
                         "sourceIO": {
                             "name": "add_shape",
-                            "type": "OUTPUT"
-                        }
-                    },
-                    {
-                        "destination": "72e317f6-1e5f-4b5b-900c-a10b09340e51",
-                        "destinationIO": {
-                            "name": "seed",
-                            "type": "INPUT"
-                        },
-                        "source": "19bb5d35-03e8-424e-bac3-1480c09b639d",
-                        "sourceIO": {
-                            "name": "value",
-                            "type": "OUTPUT"
-                        }
-                    },
-                    {
-                        "destination": "0fd5572d-c1e9-49fc-b9b5-004e5ab9e567",
-                        "destinationIO": {
-                            "name": "level_number",
-                            "type": "INPUT"
-                        },
-                        "source": "19bb5d35-03e8-424e-bac3-1480c09b639d",
-                        "sourceIO": {
-                            "name": "value",
-                            "type": "OUTPUT"
-                        }
-                    },
-                    {
-                        "destination": "ecfa6649-ed99-42f6-9b76-236bc031b5da",
-                        "destinationIO": {
-                            "name": "wildcard",
-                            "type": "INPUT"
-                        },
-                        "source": "72e317f6-1e5f-4b5b-900c-a10b09340e51",
-                        "sourceIO": {
-                            "name": "layout",
-                            "type": "OUTPUT"
-                        }
-                    },
-                    {
-                        "destination": "acb8e7e9-cbe2-437a-b6bc-d23f7b0a3231",
-                        "destinationIO": {
-                            "name": "wildcard",
-                            "type": "INPUT"
-                        },
-                        "source": "42931f26-945a-4fe0-8bbc-22a29e7100a9",
-                        "sourceIO": {
-                            "name": "direction",
-                            "type": "OUTPUT"
-                        }
-                    },
-                    {
-                        "destination": "37c74201-f965-4150-831b-fba6e7452fcf",
-                        "destinationIO": {
-                            "name": "wildcard",
-                            "type": "INPUT"
-                        },
-                        "source": "d26ecb14-118b-42c0-9584-0223eed405a2",
-                        "sourceIO": {
-                            "name": "display",
                             "type": "OUTPUT"
                         }
                     }

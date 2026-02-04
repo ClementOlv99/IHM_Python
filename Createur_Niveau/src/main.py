@@ -116,14 +116,12 @@ def Element_Array_input_callback(io_type, name, value_type, value, my_data):
 
 def Layout_input_callback(io_type, name, value_type, value, my_data):
     try:
-        print("hello world")
         agent_object = my_data
         assert isinstance(agent_object, Createur_Niveau)
         agent_object.LayoutI = value
         # add code here if needed
         layout_data = json.loads(value.decode())
         agent_object.layout = layout_data
-        print(layout_data)
     except:
         print(traceback.format_exc())
 
