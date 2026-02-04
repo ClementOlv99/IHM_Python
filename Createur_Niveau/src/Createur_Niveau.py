@@ -31,8 +31,10 @@ class Createur_Niveau(metaclass=Singleton):
         self._LevelO = None
 
         #local state related attributes
-        self.layout = None
-        self.elements = None
+        self._layout = None
+        self._elements = None
+        self.layout_set = False
+        self.element_set = False
 
     # outputs
     @property
@@ -43,28 +45,45 @@ class Createur_Niveau(metaclass=Singleton):
     def LevelO(self, value):
         self._LevelO = value
         if self._LevelO is not None:
-            igs.output_set_data("level", value)    
-    
+            igs.output_set_data("level", value)  
+  
+    @property
+    def layout(self):
+        return self._layout
+
     @layout.setter
     def layout(self, value):
-        self.layout = value
-        print("layout setter")
-        if self.elements is not None:
+        self._layout = value
+        self.layout_set = True
+        if self.element_set:
             self.Compute()
+
+    @property
+    def elements(self):
+        return self._elements
 
     @elements.setter
     def elements(self, value):
-        self.element = value
-        print("elements setter")
-        if self.layout is not None:
+        self._elements = value
+        self.element_set = True
+        if self.layout_set:
             self.Compute()
 
     def Compute(self):
-        print("computing")
+        self.layout_set = False
+        self.element_set = False
         level = np.array(self.layout)
         apple = self.elements[0]
         trap = self.elements[1]
-        possibles_indices = np.where(layout == 0)
-        print(possibles_indices.tolist())
+        possibles_indices = np.where(level == 0)
+        cases = random.sample(range(len(possibles_indices[0])), apple + trap)
+        x = possibles_indices[0]
+        y = possibles_indices[1]
+        random.shuffle(cases)
+        for i in range(apple):
+            level[y[cases[i]]][x[cases[i]]] = 4
+        for i in range(trap):
+            level[y[cases[apple + i]]][x[cases[apple + i]]] = 5
+        self.LevelO = json.dumps(level.tolist()).encode()
 
 
