@@ -12,7 +12,8 @@ func change_layout(new_layout:Array) -> void:
 			var cell_pos := Vector2i(x, y)
 			var current_atlas := get_cell_atlas_coords(cell_pos)
 			
-			match new_layout[y][x] :
+			# Convert to int (Godot JSON parser converts all numbers to floats)
+			match int(new_layout[y][x]) :
 				0 : # Floor, ignore
 					if current_atlas != Vector2i(-1, -1):  # Only erase if cell exists
 						erase_cell(cell_pos)

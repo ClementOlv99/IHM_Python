@@ -86,6 +86,8 @@ func _apply_game_data(data: Dictionary) -> void:
 	
 	# Update level layout
 	if data.has("layout"):
+		print("Received layout :")
+		print(data["layout"])
 		layout_changed(data["layout"])
 		items_changed(data["layout"])
 	

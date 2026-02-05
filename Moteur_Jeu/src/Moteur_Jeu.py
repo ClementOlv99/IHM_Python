@@ -401,7 +401,7 @@ class Moteur_Jeu(metaclass=Singleton):
             }
             
             print(f"📡 Sending display update: snake={snake_positions[:3]}{'...' if len(snake_positions) > 3 else ''}, score={self.score}, length={self.snake_length}")
-            
+            print("Layout", self.current_layout)
             # Convert to bytes for DATA output
             self.DisplayO = json.dumps(display_data).encode()
             

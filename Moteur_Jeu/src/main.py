@@ -134,6 +134,7 @@ def Level_input_callback(io_type, name, value_type, value, my_data):
         if value:
             import json
             level_data = json.loads(value.decode())
+            print(level_data)
             agent_object.initialize_level(level_data)
     except:
         print(traceback.format_exc())
